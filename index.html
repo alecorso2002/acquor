@@ -1,992 +1,478 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acquor — Verticalmente Puri, Nutrizionalmente Forti</title>
-<meta name="description" content="Acquor è una startup agritech bresciana che produce alimenti freschi tracciabili attraverso un sistema agricolo circolare integrato: idroponica, acquaponica, elicicoltura e lombricoltura.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<title>Acquor | Agricoltura Circolare</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-/* ── Reset & Variables ─────────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
+/* -------------------- BASE -------------------- */
 
-  /* colori principali */
-  --green-main: #7ED957;      /* verde pisello */
-  --green-dark: #3A7D44;
-  --green-soft: #CFEEC2;
-
-  /* neutri naturali */
-  --beige: #F4EDE4;
-  --beige-soft: #FBF8F3;
-
-  /* testo */
-  --text: #243022;
-  --text-soft: #5B6A59;
-
-  --white: #FFFFFF;
-
-  --radius: 14px;
+{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-html { scroll-behavior: smooth; }
+:root{
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--white);
-  color: var(--text);
+--green:#7ED957;
+--green-dark:#3A7D44;
+
+--beige:#F5EFE6;
+--beige-light:#FAF7F2;
+
+--text:#243022;
+
 }
-  
-/* ── NAV ───────────────────────────────────────────────────────────────────── */
+
+body{
+
+font-family:'DM Sans',sans-serif;
+background:white;
+color:var(--text);
+
+line-height:1.6;
+
+}
+
+/ -------------------- NAVBAR -------------------- /
+
 nav{
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+position:fixed;
+top:0;
+left:0;
+right:0;
 
-  padding:1.2rem 3rem;
+background:white;
+border-bottom:1px solid #eee;
 
-  background:white;
-  border-bottom:1px solid #e8e8e8;
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-  z-index:100;
-}
+padding:1rem 3rem;
+
+z-index:100;
 
-.nav-logo{
-  font-family:'Playfair Display',serif;
-  font-weight:900;
-  font-size:1.6rem;
-  color:var(--green-main);
 }
 
-.nav-logo span { color: var(--light); font-style: italic; font-size: 0.7em; }
+.logo{
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  color: var(--light); text-decoration: none; font-size: 0.9rem;
-  font-weight: 500; letter-spacing: 0.04em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--bright); }
-
-.nav-cta {
-  background: var(--bright); color: var(--ink);
-  padding: 0.55rem 1.4rem; border-radius: 50px;
-  font-weight: 600; font-size: 0.88rem;
-  text-decoration: none; transition: all 0.2s;
-}
-.nav-cta:hover { background: var(--light); transform: translateY(-1px); }
-
-/* ── HERO ──────────────────────────────────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  display: grid; place-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 8rem 3rem 5rem;
-}
+font-family:'Playfair Display',serif;
+font-size:1.6rem;
+font-weight:900;
+color:var(--green);
 
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(45,106,79,0.5) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(26,95,138,0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 10% 60%, rgba(82,183,136,0.15) 0%, transparent 60%),
-    #0F1F15;
 }
 
-/* Animated particles */
-.particle {
-  position: absolute; border-radius: 50%;
-  background: var(--bright); opacity: 0;
-  animation: float var(--dur, 8s) var(--delay, 0s) infinite ease-in-out;
-}
-@keyframes float {
-  0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
-  20% { opacity: 0.4; }
-  80% { opacity: 0.15; }
-  100% { opacity: 0; transform: translateY(-120px) scale(0.5); }
-}
+nav a{
 
-.hero-content {
-  position: relative; z-index: 2;
-  text-align: center; max-width: 900px;
-}
+text-decoration:none;
+color:var(--text);
+margin-left:2rem;
 
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: rgba(82,183,136,0.12);
-  border: 1px solid rgba(82,183,136,0.3);
-  color: var(--bright); padding: 0.4rem 1.1rem;
-  border-radius: 50px; font-size: 0.82rem; font-weight: 500;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  margin-bottom: 2rem;
-  animation: fadeUp 0.8s 0.2s both;
-}
+font-weight:500;
 
-.hero-badge::before { content: "●"; font-size: 0.5rem; animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-.hero-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(3rem,7vw,5rem);
-  font-weight:900;
-  color:var(--green-main);
 }
 
-.hero-title .accent { color: var(--bright); font-style: italic; }
-.hero-title .line2 { display: block; color: var(--light); font-size: 0.65em; }
-
-.hero-tagline {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: rgba(183,228,199,0.8);
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  margin-bottom: 2.5rem;
-  max-width: 580px; margin-left: auto; margin-right: auto;
-  animation: fadeUp 0.8s 0.5s both;
+nav a:hover{
+color:var(--green);
 }
 
-.hero-ctas {
-  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-  animation: fadeUp 0.8s 0.65s both;
-}
+/ -------------------- HERO -------------------- /
 
-.btn-primary{
-  background:var(--green-main);
-  color:white;
-  padding:0.9rem 2.2rem;
-  border-radius:50px;
-  font-weight:700;
-  text-decoration:none;
-}
+.hero{
 
-.btn-primary:hover{
-  background: var(--beige-soft);
-}
+padding:160px 20px 120px;
 
-.btn-ghost {
-  border: 1.5px solid rgba(82,183,136,0.4); color: var(--bright);
-  padding: 0.9rem 2.2rem; border-radius: 50px;
-  font-weight: 500; font-size: 1rem; text-decoration: none;
-  transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem;
-}
-.btn-ghost:hover { border-color: var(--bright); background: rgba(82,183,136,0.08); transform: translateY(-2px); }
-
-/* Hero stats */
-.hero-stats {
-  display: flex; gap: 3rem; justify-content: center;
-  margin-top: 4.5rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(82,183,136,0.15);
-  animation: fadeUp 0.8s 0.8s both;
-}
+text-align:center;
+max-width:900px;
+margin:auto;
 
-.stat { text-align: center; }
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem; font-weight: 900;
-  color: var(--bright); line-height: 1;
 }
-.stat-num sup { font-size: 0.5em; vertical-align: super; }
-.stat-label { font-size: 0.78rem; color: var(--light); margin-top: 0.3rem; letter-spacing: 0.05em; text-transform: uppercase; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
-/* Scroll indicator */
-.scroll-hint {
-  position: absolute; bottom: 2rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  color: rgba(82,183,136,0.5); font-size: 0.75rem; letter-spacing: 0.1em;
-  animation: fadeUp 1s 1.2s both;
-}
-.scroll-line {
-  width: 1px; height: 50px;
-  background: linear-gradient(to bottom, rgba(82,183,136,0.5), transparent);
-  animation: scrollPulse 2s infinite;
-}
-@keyframes scrollPulse { 0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  100% { transform: scaleY(0); transform-origin: bottom; } }
-
-/* ── SECTIONS SHARED ───────────────────────────────────────────────────────── */
-section { padding: 6rem 3rem; }
-
-.section-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--bright);
-  margin-bottom: 1rem; display: block;
-}
+.hero h1{
 
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700; line-height: 1.15;
-  margin-bottom: 1.2rem;
-}
+font-family:'Playfair Display',serif;
 
-.section-body {
-  font-size: 1.05rem; line-height: 1.75;
-  color: rgba(255,255,255,0.7);
-  max-width: 600px;
-}
+font-size:4rem;
+color:var(--green);
 
-.container { max-width: 1200px; margin: 0 auto; }
+margin-bottom:1rem;
 
-/* ── MANIFESTO ─────────────────────────────────────────────────────────────── */
-#manifesto {
-  background: var(--cream);
-  color: var(--ink);
-  position: relative; overflow: hidden;
 }
 
-#manifesto::before {
-  content: '"';
-  position: absolute; top: -2rem; left: 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 20rem; color: rgba(45,106,79,0.06);
-  line-height: 1; pointer-events: none;
-}
+.hero p{
 
-.manifesto-inner {
-  max-width: 900px; margin: 0 auto; position: relative; z-index: 1;
-}
+font-size:1.3rem;
+margin-bottom:2rem;
 
-.manifesto-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.5rem, 3vw, 2.3rem);
-  font-weight: 700; line-height: 1.4;
-  color: var(--dark);
-  margin-bottom: 2rem;
 }
 
-.manifesto-quote em { color: var(--mid); font-style: italic; }
+.btn{
 
-.manifesto-body {
-  font-size: 1.05rem; line-height: 1.8;
-  color: rgba(27,67,50,0.75);
-  columns: 2; column-gap: 3rem;
-}
+background:var(--green);
+color:white;
 
-.manifesto-sign {
-  margin-top: 2.5rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.82rem; color: var(--mid);
-  letter-spacing: 0.08em;
-}
+padding:14px 28px;
+border-radius:40px;
 
-/* ── PILASTRI ──────────────────────────────────────────────────────────────── */
-#pilastri { background: #0F1F15; }
-
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5px;
-  margin-top: 4rem;
-  border: 1.5px solid rgba(82,183,136,0.12);
-  border-radius: 16px; overflow: hidden;
-}
+text-decoration:none;
+font-weight:600;
 
-.pillar {
-  padding: 2.5rem 2rem;
-  background: rgba(27,67,50,0.4);
-  position: relative; overflow: hidden;
-  transition: background 0.3s;
 }
-.pillar:hover { background: rgba(45,106,79,0.5); }
-
-.pillar::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px; background: var(--bright);
-  transform: scaleX(0); transition: transform 0.3s;
-}
-.pillar:hover::after { transform: scaleX(1); }
-
-.pillar-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem; color: rgba(82,183,136,0.5);
-  letter-spacing: 0.15em; margin-bottom: 1.2rem;
-}
 
-.pillar-icon {
-  font-size: 2rem; margin-bottom: 1rem;
-  display: block;
-}
+.btn:hover{
 
-.pillar-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 700;
-  margin-bottom: 0.75rem; color: var(--bright);
-}
+background:var(--green-dark);
 
-.pillar-body {
-  font-size: 0.88rem; line-height: 1.65;
-  color: rgba(183,228,199,0.7);
 }
 
-/* ── SISTEMA CIRCOLARE ─────────────────────────────────────────────────────── */
-#sistema {
-  background: linear-gradient(135deg, #0a1a10 0%, #1B4332 50%, #0a1a10 100%);
-}
+/ -------------------- SEZIONI -------------------- /
 
-.sistema-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center; margin-top: 3rem;
-}
+section{
 
-.sistema-img-wrap {
-  position: relative; border-radius: 20px; overflow: hidden;
-  border: 1px solid rgba(82,183,136,0.2);
-  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-}
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
 
-.sistema-img-wrap img {
-  width: 100%; display: block;
-  transition: transform 0.6s ease;
 }
-.sistema-img-wrap:hover img { transform: scale(1.02); }
 
-.sistema-modules {
-  display: flex; flex-direction: column; gap: 1.2rem;
-}
+.section-title{
 
-.module-row {
-  display: flex; gap: 1rem; align-items: flex-start;
-  padding: 1.2rem 1.5rem;
-  background: rgba(27,67,50,0.4);
-  border: 1px solid rgba(82,183,136,0.1);
-  border-radius: 12px;
-  transition: all 0.25s;
-  cursor: default;
-}
-.module-row:hover {
-  background: rgba(45,106,79,0.5);
-  border-color: rgba(82,183,136,0.3);
-  transform: translateX(6px);
-}
+font-family:'Playfair Display',serif;
+font-size:2.5rem;
 
-.module-icon { font-size: 1.6rem; flex-shrink: 0; }
+margin-bottom:1rem;
 
-.module-info { flex: 1; }
-.module-name {
-  font-weight: 700; font-size: 0.95rem;
-  color: var(--bright); margin-bottom: 0.25rem;
-}
-.module-desc { font-size: 0.83rem; color: rgba(183,228,199,0.65); line-height: 1.5; }
-
-.module-badge {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem; padding: 0.25rem 0.6rem;
-  border-radius: 50px; flex-shrink: 0; align-self: flex-start;
-}
-.badge-f1 { background: rgba(45,106,79,0.4); color: var(--bright); border: 1px solid rgba(82,183,136,0.3); }
-.badge-f2 { background: rgba(26,95,138,0.4); color: var(--lblue); border: 1px solid rgba(147,197,253,0.3); }
-
-/* ── DATI ──────────────────────────────────────────────────────────────────── */
-#dati { background: var(--dark); }
-
-.dati-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; margin-top: 3.5rem;
 }
 
-.dato-card{
-  background:white;
-  border:1px solid #eaeaea;
-  border-radius:var(--radius);
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-.dato-card:hover { transform: translateY(-4px); border-color: rgba(82,183,136,0.4); }
-
-.dato-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px; background: linear-gradient(90deg, transparent, var(--bright), transparent);
-}
+.section-text{
 
-.dato-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2rem; font-weight: 900;
-  color: var(--bright); line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.dato-unit { font-size: 1.4rem; }
-.dato-label { font-size: 0.82rem; color: var(--light); letter-spacing: 0.06em; margin-bottom: 0.8rem; text-transform: uppercase; }
-.dato-desc { font-size: 0.82rem; color: rgba(183,228,199,0.5); line-height: 1.5; }
-
-/* ── TRACCIABILITA ─────────────────────────────────────────────────────────── */
-#tracciabilita {
-  background: var(--cream); color: var(--ink);
-}
+font-size:1.1rem;
+color:#555;
 
-.trace-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: center; margin-top: 3rem;
+max-width:650px;
+
 }
 
-.trace-steps { display: flex; flex-direction: column; gap: 0; }
+/ -------------------- PILASTRI -------------------- /
 
-.trace-step {
-  display: flex; gap: 1.5rem;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(27,67,50,0.1);
-  position: relative;
-}
+.grid{
 
-.trace-step-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.7rem; color: var(--mid);
-  background: rgba(82,183,136,0.1);
-  width: 2rem; height: 2rem; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-weight: 700; margin-top: 0.1rem;
-}
+margin-top:40px;
 
-.trace-step-title {
-  font-weight: 700; font-size: 1rem;
-  color: var(--dark); margin-bottom: 0.3rem;
-}
-.trace-step-desc { font-size: 0.88rem; color: rgba(27,67,50,0.65); line-height: 1.55; }
-
-.trace-visual {
-  background: var(--dark);
-  border-radius: 20px; padding: 2.5rem;
-  display: flex; flex-direction: column; align-items: center; gap: 2rem;
-}
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 
-.qr-mockup {
-  width: 120px; height: 120px;
-  background: linear-gradient(135deg, var(--mid), var(--bright));
-  border-radius: 16px; display: grid;
-  grid-template-columns: repeat(5,1fr); grid-template-rows: repeat(5,1fr);
-  gap: 4px; padding: 12px;
-}
-.qr-cell { background: rgba(255,255,255,0.9); border-radius: 2px; }
-.qr-cell.dark { background: rgba(27,67,50,0.9); }
-
-.trace-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-.trace-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem; padding: 0.35rem 0.85rem;
-  background: rgba(82,183,136,0.12); color: var(--bright);
-  border: 1px solid rgba(82,183,136,0.2);
-  border-radius: 50px;
+gap:25px;
+
 }
 
-/* ── TEAM ──────────────────────────────────────────────────────────────────── */
-#team { background: #0F1F15; }
+.card{
 
-.team-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2rem; margin-top: 4rem;
-}
+background:white;
 
-.team-card {
-  padding: 2.5rem;
-  background: rgba(27,67,50,0.4);
-  border: 1px solid rgba(82,183,136,0.12);
-  border-radius: 20px;
-  display: flex; gap: 2rem; align-items: flex-start;
-  transition: all 0.3s;
-}
-.team-card:hover {
-  background: rgba(45,106,79,0.4);
-  border-color: rgba(82,183,136,0.3);
-  transform: translateY(-3px);
-}
+border:1px solid #eee;
+border-radius:14px;
 
-.team-avatar {
-  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem; font-weight: 900;
-  color: var(--dark);
-}
-.avatar-v { background: linear-gradient(135deg, var(--bright), var(--light)); }
-.avatar-a { background: linear-gradient(135deg, var(--lblue), var(--bright)); }
-
-.team-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--bright); margin-bottom: 0.2rem; }
-.team-role { font-size: 0.8rem; color: var(--light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.8rem; font-family: 'DM Mono', monospace; }
-.team-bio { font-size: 0.88rem; line-height: 1.65; color: rgba(183,228,199,0.65); }
-
-.team-bottom {
-  margin-top: 3rem; padding: 2rem 2.5rem;
-  background: rgba(27,67,50,0.3);
-  border: 1px solid rgba(82,183,136,0.12);
-  border-radius: 16px; text-align: center;
-}
-.team-bottom p { color: var(--light); font-size: 0.95rem; line-height: 1.7; }
-.team-bottom strong { color: var(--bright); }
-
-/* ── CTA ───────────────────────────────────────────────────────────────────── */
-#contatti {
-  background: linear-gradient(135deg, var(--dark) 0%, #1a3d2b 100%);
-  text-align: center; position: relative; overflow: hidden;
-}
+padding:30px;
 
-#contatti::before {
-  content: 'ACQUOR';
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Playfair Display', serif;
-  font-size: 22vw; font-weight: 900;
-  color: rgba(82,183,136,0.04);
-  white-space: nowrap; pointer-events: none;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+
 }
 
-.cta-inner { position: relative; z-index: 1; }
+.card h3{
 
-.cta-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900;
-  line-height: 1.1; margin-bottom: 1.2rem;
+color:var(--green);
+margin-bottom:10px;
+
 }
-.cta-title em { color: var(--bright); font-style: italic; }
-
-.cta-sub {
-  font-size: 1.1rem; color: rgba(183,228,199,0.7);
-  margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto;
+
+/ -------------------- SISTEMA -------------------- /
+
+.sistema{
+
+background:var(--beige-light);
+
 }
 
-.cta-contacts {
-  display: flex; gap: 1.5rem; justify-content: center;
-  flex-wrap: wrap; margin-top: 2rem;
+.sistema img{
+
+width:100%;
+border-radius:14px;
+margin-top:40px;
+
 }
+
+/ -------------------- NUMERI -------------------- /
 
-.contact-pill {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.7rem 1.5rem;
-  background: rgba(82,183,136,0.1);
-  border: 1px solid rgba(82,183,136,0.25);
-  border-radius: 50px; color: var(--light);
-  font-size: 0.9rem; text-decoration: none;
-  transition: all 0.25s;
+.numbers{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+
+margin-top:40px;
+
 }
-.contact-pill:hover { background: rgba(82,183,136,0.2); border-color: var(--bright); color: var(--bright); }
-
-/* ── FOOTER ────────────────────────────────────────────────────────────────── */
-footer {
-  background: var(--ink);
-  padding: 2rem 3rem;
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid rgba(82,183,136,0.1);
+
+.number{
+
+text-align:center;
+
+padding:30px;
+
+background:white;
+
+border-radius:14px;
+
+border:1px solid #eee;
+
 }
+
+.number h2{
 
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 900;
-  color: var(--bright); letter-spacing: 0.08em;
+font-size:3rem;
+color:var(--green);
+
 }
+
+/ -------------------- TEAM -------------------- /
+
+.team{
 
-.footer-copy {
-  font-size: 0.78rem; color: rgba(183,228,199,0.4);
-  font-family: 'DM Mono', monospace;
+background:var(--beige);
+
 }
+
+.team-card{
+
+background:white;
 
-/* ── ANIMATIONS ────────────────────────────────────────────────────────────── */
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+border-radius:14px;
+padding:30px;
+
+border:1px solid #eee;
+
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── RESPONSIVE ────────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  section { padding: 4rem 1.5rem; }
-  .pillars-grid { grid-template-columns: 1fr 1fr; }
-  .sistema-grid, .trace-grid, .team-grid { grid-template-columns: 1fr; }
-  .dati-grid { grid-template-columns: 1fr 1fr; }
-  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-  .manifesto-body { columns: 1; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; }
+
+/ -------------------- CONTATTI -------------------- */
+
+.contact{
+
+text-align:center;
+
 }
 
-@media (max-width: 600px) {
-  .pillars-grid { grid-template-columns: 1fr; }
-  .dati-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 1.5rem; }
-  .cta-contacts { flex-direction: column; align-items: center; }
+footer{
+
+margin-top:80px;
+padding:40px;
+
+text-align:center;
+
+font-size:14px;
+color:#777;
+
+border-top:1px solid #eee;
+
 }
+
 </style>
+
 </head>
+
 <body>
 
-<!-- ── NAV ──────────────────────────────────────────────────────────────────── -->
 <nav>
-  <a class="nav-logo" href="#">ACQUOR <span>·it</span></a>
-  <ul class="nav-links">
-    <li><a href="#manifesto">L'Idea</a></li>
-    <li><a href="#pilastri">Pilastri</a></li>
-    <li><a href="#sistema">Sistema</a></li>
-    <li><a href="#dati">Dati</a></li>
-    <li><a href="#team">Team</a></li>
-  </ul>
-  <a class="nav-cta" href="#contatti">Contattaci</a>
+
+<div class="logo">ACQUOR</div>
+
+<div>
+
+<a href="#idea">Idea</a>
+<a href="#sistema">Sistema</a>
+<a href="#numeri">Numeri</a>
+<a href="#team">Team</a>
+
+</div>
+
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg"></div>
+<!-- HERO -->
 
-  <!-- Particles -->
-  <div class="particle" style="width:4px;height:4px;left:15%;bottom:20%;--dur:9s;--delay:0s"></div>
-  <div class="particle" style="width:3px;height:3px;left:30%;bottom:10%;--dur:7s;--delay:1.5s"></div>
-  <div class="particle" style="width:5px;height:5px;left:55%;bottom:5%;--dur:11s;--delay:0.5s"></div>
-  <div class="particle" style="width:3px;height:3px;left:70%;bottom:25%;--dur:8s;--delay:2s"></div>
-  <div class="particle" style="width:4px;height:4px;left:85%;bottom:15%;--dur:10s;--delay:1s"></div>
-  <div class="particle" style="width:2px;height:2px;left:45%;bottom:30%;--dur:6s;--delay:3s"></div>
+<div class="hero">
 
-  <div class="hero-content">
-    <div class="hero-badge">Agritech · Economia Circolare · Brescia</div>
+<h1>Agricoltura circolare.</h1>
 
-    <h1 class="hero-title">
-      <span class="accent">Verticalmente</span> puri,
-      <span class="line2">nutrizionalmente forti.</span>
-    </h1>
+<p>
 
-    <p class="hero-tagline">
-      Un sistema agricolo circolare integrato — 
-      dove ogni scarto diventa risorsa, ogni prodotto racconta la propria storia.
-    </p>
+Produciamo alimenti freschi e tracciabili attraverso
+un sistema integrato di idroponica, acquaponica,
+elicicoltura e lombricoltura.
 
-    <div class="hero-ctas">
-      <a class="btn-primary" href="#sistema">↓ Scopri il sistema</a>
-      <a class="btn-ghost" href="#contatti">Collabora con noi</a>
-    </div>
+</p>
 
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">−90<sup>%</sup></div>
-        <div class="stat-label">Consumo idrico vs. agricoltura tradizionale</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">0</div>
-        <div class="stat-label">Pesticidi · Stagionalità · Sprechi</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Comparti produttivi integrati</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">365</div>
-        <div class="stat-label">Giorni di produzione continua</div>
-      </div>
-    </div>
-  </div>
+<a class="btn" href="#sistema">Scopri il sistema</a>
 
-  <div class="scroll-hint">
-    <span>Scorri</span>
-    <div class="scroll-line"></div>
-  </div>
+</div>
+
+<!-- IDEA -->
+
+<section id="idea">
+
+<h2 class="section-title">Una nuova agricoltura.</h2>
+
+<p class="section-text">
+
+Acquor nasce per dimostrare che efficienza e sostenibilità possono
+coesistere. Il sistema integra più tecnologie agricole in un ciclo
+circolare dove gli scarti diventano risorse.
+
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>♻ Economia circolare</h3>
+<p>Gli scarti di ogni processo alimentano il modulo successivo.</p>
+</div>
+
+<div class="card">
+<h3>💧 Risparmio idrico</h3>
+<p>Fino al 90% di acqua in meno rispetto all'agricoltura tradizionale.</p>
+</div>
+
+<div class="card">
+<h3>🌱 Zero pesticidi</h3>
+<p>Produzione controllata senza fitofarmaci chimici.</p>
+</div>
+
+<div class="card">
+<h3>📊 Tracciabilità</h3>
+<p>Ogni lotto è documentato con dati reali.</p>
+</div>
+
+</div>
+
 </section>
 
-<!-- ── MANIFESTO ─────────────────────────────────────────────────────────────── -->
-<section id="manifesto">
-  <div class="manifesto-inner">
-    <span class="section-label" style="color:var(--mid)">// L'idea</span>
-    <p class="manifesto-quote">
-      Immaginate della lattuga raccolta ieri, pronta da mangiare senza lavarla,
-      con un codice QR che vi mostra <em>esattamente</em> cosa contiene.
-    </p>
-    <div class="manifesto-body">
-      <p>Acquor nasce dalla convinzione che l'agricoltura del futuro non debba scegliere tra efficienza e sostenibilità. Il nostro sistema integra tecnologie idroponiche avanzate, acquaponica, elicicoltura e lombricoltura in un ciclo dove ogni scarto è la risorsa del modulo successivo.</p>
-      <p>Non siamo un'azienda che dichiara la sostenibilità — la dimostriamo. Ogni lotto di produzione è documentato con dati analitici reali: valori nutrizionali misurati, consumi idrici registrati, assenza di pesticidi verificata. I dati non si dichiarano, si pubblicano.</p>
-    </div>
-    <p class="manifesto-sign">— Vera Taglietti &amp; Alessandro Corsetti, fondatori Acquor</p>
-  </div>
+<!-- SISTEMA -->
+
+<section id="sistema" class="sistema">
+
+<h2 class="section-title">Il sistema circolare</h2>
+
+<p class="section-text">
+
+Cinque comparti produttivi integrati
+che lavorano insieme in un ciclo chiuso.
+
+</p>
+
+<img src="acquor_circle.png">
+
 </section>
 
-<!-- ── PILASTRI ──────────────────────────────────────────────────────────────── -->
-<section id="pilastri">
-  <div class="container">
-    <span class="section-label">// I pilastri</span>
-    <h2 class="section-title">Quattro ragioni per cui<br>Acquor è diversa.</h2>
+<!-- NUMERI -->
 
-    <div class="pillars-grid reveal">
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <span class="pillar-icon">♻️</span>
-        <div class="pillar-title">Circolarità reale</div>
-        <p class="pillar-body">Ogni scarto del sistema diventa input del modulo successivo. Gli scarti vegetali dell'idroponica nutrono le lumache. Le deiezioni organiche alimentano i lombrichi. Il vermicompost torna in parte come substrato alle piante. Zero rifiuti strutturali.</p>
-      </div>
-  
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <span class="pillar-icon">📱</span>
-        <div class="pillar-title">Tracciabilità radicale</div>
-        <p class="pillar-body">Ogni lotto ha un QR code con dati nutrizionali per varietà, consumi idrici, data di raccolta, zero pesticidi verificato. I dati sono pubblici e immutabili — non dichiarazioni, ma prove. La blockchain garantisce l'integrità della filiera.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">04</div>
-        <span class="pillar-icon">🎓</span>
-        <div class="pillar-title">Team fondatore</div>
-        <p class="pillar-body">Due fondatori under-25, laurea in Sistemi Agricoli Sostenibili e Tecnologie per la Transizione Energetica in Agricoltura — UniBS. Formati in masterclass di idrponica e acquaponica. Ambiziosi, con dati, non con promesse.</p>
-      </div>
-    </div>
-  </div>
+<section id="numeri">
+
+<h2 class="section-title">Dati concreti</h2>
+
+<div class="numbers">
+
+<div class="number">
+<h2>−90%</h2>
+<p>Consumo idrico</p>
+</div>
+
+<div class="number">
+<h2>0</h2>
+<p>Pesticidi</p>
+</div>
+
+<div class="number">
+<h2>365</h2>
+<p>Giorni di produzione</p>
+</div>
+
+<div class="number">
+<h2>5</h2>
+<p>Comparti integrati</p>
+</div>
+
+</div>
+
 </section>
 
-<!-- ── SISTEMA ───────────────────────────────────────────────────────────────── -->
-<section id="sistema">
-  <div class="container">
-    <span class="section-label">// Il sistema circolare</span>
-    <h2 class="section-title">Cinque comparti,<br>un ciclo chiuso.</h2>
-    <p class="section-body">Ogni modulo è autonomo ma integrato. Il sistema è progettato per espandersi gradualmente, riducendo i rischi e massimizzando i margini incrementali.</p>
+<!-- TEAM -->
 
-    <div class="sistema-grid reveal">
-      <div class="sistema-img-wrap">
-        <img src="acquor_circle.png" alt="Sistema Circolare Integrato Acquor" loading="lazy">
-      </div>
+<section id="team" class="team">
 
-      <div class="sistema-modules">
-        <div class="module-row">
-          <span class="module-icon">🌿</span>
-          <div class="module-info">
-            <div class="module-name">Idroponica</div>
-            <div class="module-desc">Coltivazione NFT + DWC fuori suolo. Ortaggi a foglia, aromatiche, fragole, pomodori. Produzione 365 giorni/anno.</div>
-          </div>
-          <span class="module-badge badge-f1">Fase 1</span>
-        </div>
-        <div class="module-row">
-          <span class="module-icon">🐟</span>
-          <div class="module-info">
-            <div class="module-name">Acquaponica</div>
-            <div class="module-desc">Trota, Persico, Lavarello — pesci tipici del Lago di Garda. Integrata con maniche DWC verticali per ortaggi freschi in simbiosi.</div>
-          </div>
-          <span class="module-badge badge-f2">Fase 2</span>
-        </div>
-        <div class="module-row">
-          <span class="module-icon">🐌</span>
-          <div class="module-info">
-            <div class="module-name">Elicicoltura</div>
-            <div class="module-desc">Helix aspersa Muller. Bava destinata all'industria cosmetica. Carne e uova di lumaca per la ristorazione.</div>
-          </div>
-          <span class="module-badge badge-f2">Fase 2</span>
-        </div>
-        <div class="module-row">
-          <span class="module-icon">🪱</span>
-          <div class="module-info">
-            <div class="module-name">Lombricoltura</div>
-            <div class="module-desc">Eisenia fetida. Produce vermicompost certificato che torna in parte come substrato all'idroponica e in parte valorizzato come fertilizzante — ciclo vermiponico chiuso.</div>
-          </div>
-          <span class="module-badge badge-f1">Fase 1</span>
-        </div>
-        <div class="module-row">
-          <span class="module-icon">🏭</span>
-          <div class="module-info">
-            <div class="module-name">Laboratorio di Trasformazione</div>
-            <div class="module-desc">Pesti, essiccati, liofilizzati, estratti di bava cosmetica. Prodotti ad alto valore aggiunto per GDO premium, Mercati locali, ed e-commerce.</div>
-          </div>
-          <span class="module-badge badge-f1">Fase 1</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2 class="section-title">Il team</h2>
+
+<div class="grid">
+
+<div class="team-card">
+
+<h3>Vera Taglietti</h3>
+
+<p>
+Laurea in Sistemi Agricoli Sostenibili — Università di Brescia.
+Specializzazione in coltivazioni idroponiche.
+</p>
+
+</div>
+
+<div class="team-card">
+
+<h3>Alessandro Corsetti</h3>
+
+<p>
+Laurea in Sistemi Agricoli Sostenibili — Università di Brescia.
+Specializzazione in sistemi acquaponici.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- ── DATI ──────────────────────────────────────────────────────────────────── -->
-<section id="dati">
-  <div class="container">
-    <span class="section-label">// I numeri</span>
-    <h2 class="section-title">Dati concreti,<br>non dichiarazioni.</h2>
+<!-- CONTATTI -->
 
-    <div class="dati-grid reveal">
-      <div class="dato-card">
-        <div class="dato-num">−90<span class="dato-unit">%</span></div>
-        <div class="dato-label">Consumo idrico</div>
-        <div class="dato-desc">Rispetto all'agricoltura convenzionale a parità di produzione. L'acqua viene ricircolata nel sistema.</div>
-      </div>
-      <div class="dato-card">
-        <div class="dato-num">3<span class="dato-unit">×</span></div>
-        <div class="dato-label">Vitamina C</div>
-        <div class="dato-desc">Rispetto al biologico tradizionale. Il controllo delle variabili di crescita ottimizza il profilo nutrizionale.</div>
-      </div>
-      <div class="dato-card">
-        <div class="dato-num">0</div>
-        <div class="dato-label">Pesticidi</div>
-        <div class="dato-desc">Sistema di produzione sterile e controllato. Nessun agente chimico — verificato per ogni lotto con QR code.</div>
-      </div>
-      <div class="dato-card">
-        <div class="dato-num">Grande valorizzazione dei prodotti delle chiocciole</div>
-        <div class="dato-label">Caviale di lumaca — Bava</div>
-        <div class="dato-desc">Mercato in forte crescita.</div>
-      </div>
+<section class="contact">
 
-      <div class="dato-card">
-        <div class="dato-num">5</div>
-        <div class="dato-label">Comparti integrati</div>
-        <div class="dato-desc">Idroponica · Acquaponica · Elicicoltura · Lombricoltura · Trasformazione. Un ecosistema produttivo unico.</div>
-      </div>
-    </div>
-  </div>
+<h2 class="section-title">Collaboriamo</h2>
+
+<p class="section-text">
+
+Cerchiamo partner, investitori e collaboratori
+interessati allo sviluppo di sistemi agricoli sostenibili.
+
+</p>
+
+<br>
+
+<a class="btn" href="mailto:info.acquor@gmail.com">Contattaci</a>
+
 </section>
 
-<!-- ── TRACCIABILITÀ ──────────────────────────────────────────────────────────── -->
-<section id="tracciabilita">
-  <div class="container">
-    <span class="section-label" style="color:var(--mid)">// Trasparenza radicale</span>
-    <h2 class="section-title" style="color:var(--ink)">Ogni prodotto racconta<br>la sua storia.</h2>
-
-    <div class="trace-grid reveal">
-      <div class="trace-steps">
-        <div class="trace-step">
-          <div class="trace-step-num">01</div>
-          <div>
-            <div class="trace-step-title">Semina con ID lotto</div>
-            <div class="trace-step-desc">Ogni ciclo produttivo parte con un identificativo univoco registrato: specie, varietà, data, parametri ambientali iniziali.</div>
-          </div>
-        </div>
-        <div class="trace-step">
-          <div class="trace-step-num">02</div>
-          <div>
-            <div class="trace-step-title">Monitoraggio continuo</div>
-            <div class="trace-step-desc">Consumi idrici, valori nutrizionali della soluzione, temperatura, EC e pH registrati per tutta la crescita.</div>
-          </div>
-        </div>
-        <div class="trace-step">
-          <div class="trace-step-num">03</div>
-          <div>
-            <div class="trace-step-title">Analisi al raccolto</div>
-            <div class="trace-step-desc">Profilo nutrizionale completo per lotto: vitamina C, calcio, ferro, nitrati. Dati di laboratorio, non stime.</div>
-          </div>
-        </div>
-        <div class="trace-step">
-          <div class="trace-step-num">04</div>
-          <div>
-            <div class="trace-step-title">QR code immutabile</div>
-            <div class="trace-step-desc">Tutti i dati del lotto sono accessibili via QR code con tecnologia blockchain. Pubblici, verificabili, permanenti.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="trace-visual">
-        <!-- QR mockup visivo -->
-        <div style="text-align:center;">
-          <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--bright);letter-spacing:0.1em;margin-bottom:1rem;">LOTTO #AQ-2025-001</div>
-          <div class="qr-mockup">
-            <div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell"></div><div class="qr-cell dark"></div>
-            <div class="qr-cell dark"></div><div class="qr-cell"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell"></div>
-            <div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div>
-            <div class="qr-cell"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell"></div><div class="qr-cell dark"></div>
-            <div class="qr-cell dark"></div><div class="qr-cell"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell"></div>
-          </div>
-          <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(82,183,136,0.5);margin-top:0.8rem;">Scansiona per i dati completi</div>
-        </div>
-
-        <div class="trace-tags">
-          <span class="trace-tag">Vitamina C: 89mg/100g</span>
-          <span class="trace-tag">0 pesticidi</span>
-          <span class="trace-tag">Acqua: 1.2L/kg</span>
-          <span class="trace-tag">Raccolto: ieri</span>
-          <span class="trace-tag">Brescia, IT</span>
-          <span class="trace-tag">Blockchain verified</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TEAM ──────────────────────────────────────────────────────────────────── -->
-<section id="team">
-  <div class="container">
-    <span class="section-label">// Il team</span>
-    <h2 class="section-title">Due fondatori,<br>una visione condivisa.</h2>
-
-    <div class="team-grid reveal">
-      <div class="team-card">
-        <div class="team-avatar avatar-v">V</div>
-        <div>
-          <div class="team-name">Vera Taglietti</div>
-          <div class="team-role">Co-fondatrice</div>
-          <div class="team-bio">Laurea triennale in Sistemi Agricoli Sostenibili — UniBS. Magistrale in corso: Tecnologie per la Transizione Energetica in Agricoltura. Specializzazione in coltivazioni idroponiche e analisi nutrizionale.</div>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar avatar-a">A</div>
-        <div>
-          <div class="team-name">Alessandro Corsetti</div>
-          <div class="team-role">Co-fondatore</div>
-          <div class="team-bio">Laurea triennale in Sistemi Agricoli Sostenibili — UniBS. Magistrale in corso: Tecnologie per la Transizione Energetica in Agricoltura. Specializzazione in sistemi acquaponici e microalghe.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="team-bottom">
-      <p>Formati con <strong>masterclass in idrponica e acquaponica</strong>. Brescia, 2025.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA ──────────────────────────────────────────────────────────────────── -->
-<section id="contatti">
-  <div class="container cta-inner">
-    <span class="section-label">// Contatti</span>
-    <h2 class="cta-title">
-      Costruiamo il futuro<br>
-      dell'agricoltura <em>insieme.</em>
-    </h2>
-    <p class="cta-sub">
-      Siamo alla ricerca di partner, investitori e collaboratori che condividano la visione di un'agricoltura radicalmente sostenibile, circolare e trasparente.
-    </p>
-
-    <a class="btn-primary" href="mailto:info.acquor@gmail.com" style="font-size:1.1rem;padding:1rem 2.5rem;margin-bottom:2rem;display:inline-flex;">
-      Scrivici →
-    </a>
-
-    <div class="cta-contacts">
-      <a class="contact-pill" href="mailto:info.acquor@gmail.com">✉ info.acquor@gmail.com</a>
-      <a class="contact-pill" href="https://acquor.it">🌐 acquor.it</a>
-      <a class="contact-pill" href="#">📍 Brescia, Italia</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ────────────────────────────────────────────────────────────────── -->
 <footer>
-  <div class="footer-logo">ACQUOR</div>
-  <div class="footer-copy">© 2025 Acquor — Vera Taglietti & Alessandro Corsetti · Brescia</div>
-  <div class="footer-copy">Verticalmente puri, nutrizionalmente forti.</div>
+
+© 2025 Acquor — Brescia
+
 </footer>
 
-<!-- ── JS ────────────────────────────────────────────────────────────────────── -->
-<script>
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Smooth nav highlight
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current
-      ? 'var(--bright)' : '';
-  });
-});
-</script>
 </body>
+
 </html>
