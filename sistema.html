@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Il sistema integrato di Acquor: 5 moduli (idroponica NFT+DWC, acquaponica, elicicoltura, lombricoltura, laboratorio) in un ciclo chiuso dove ogni scarto diventa risorsa.">
+  <meta name="author" content="Acquor — Vera Taglietti & Alessandro Corsetti">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#3D6142">
+  <meta property="og:title" content="Come funziona il sistema circolare Acquor">
+  <meta property="og:description" content="I cinque comparti integrati di Acquor: idroponica, acquaponica, elicicoltura, lombricoltura e laboratorio di trasformazione in un ciclo a zero sprechi.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://acquor.it/sistema.html">
+  <meta property="og:image" content="https://acquor.it/og-image.png">
+  <meta property="og:site_name" content="Acquor">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="5 moduli integrati in un ciclo chiuso: idroponica, acquaponica, elicicoltura, lombricoltura, laboratorio. Ogni scarto è una risorsa.">
+  <meta name="twitter:image" content="https://acquor.it/og-image.png">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://acquor.it/sistema.html">
+  <title>Il Sistema Circolare Acquor — Come Funziona l'Agricoltura a Zero Sprechi</title>
+  <link rel="icon" type="image/png" href="Logo_originale.png">
+  <link rel="apple-touch-icon" href="Logo_originale.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+:root{--nav-h:72px;--sage-dark:#2E7D32;--sage:#4CAF50;--sage-mid:#388E3C;--beige:#E4D9C8;--ink:#1A2E1B;--snow:#FAFAF7;--white:#FFFFFF;--gray:#7A8C7B;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Jost',sans-serif;--radius:4px;--shadow-sm:0 4px 16px rgba(30,43,31,.08);--shadow-md:0 12px 40px rgba(30,43,31,.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--white);display:flex;align-items:center;justify-content:center}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem}
+</style>
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Il sistema circolare integrato Acquor — cinque comparti, un ciclo chiuso",
+    "description": "Idroponica, acquaponica, elicicoltura, lombricoltura e laboratorio di trasformazione integrati in un sistema agricolo circolare a zero sprechi strutturali.",
+    "author": {"@type": "Organization", "name": "Acquor"},
+    "publisher": {"@type": "Organization", "name": "Acquor", "url": "https://acquor.it"}
+  }
+</script>
+
+<script>
+'use strict';
+/* ── Validazione campo-per-campo ────────────────────────────── */
+(function(){
+  var forms = document.querySelectorAll('#contact-form');
+  forms.forEach(function(form){
+    var fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+    // Messaggi di errore per campo
+    var errorMessages = {
+      'nome':     'Inserisci il tuo nome.',
+      'cognome':  'Inserisci il tuo cognome.',
+      'email':    'Inserisci un indirizzo e-mail valido.',
+      'tipo':     'Seleziona un tipo di interesse.',
+      'messaggio':'Scrivi un messaggio.',
+      'privacy':  'Devi accettare l\'informativa privacy per procedere.'
+    };
+
+    function validateField(field) {
+      var wrapper = field.closest('.form-field');
+      if (!wrapper) return true;
+      var errEl = wrapper.querySelector('.field-error');
+      var valid = true;
+
+      if (field.type === 'checkbox') {
+        valid = field.checked;
+      } else if (field.type === 'email') {
+        valid = field.value.trim() !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+      } else {
+        valid = field.value.trim() !== '';
+      }
+
+      if (!valid) {
+        wrapper.classList.add('has-error');
+        if (errEl) errEl.classList.add('visible');
+      } else {
+        wrapper.classList.remove('has-error');
+        if (errEl) errEl.classList.remove('visible');
+      }
+      return valid;
+    }
+
+    // Valida on-blur
+    fields.forEach(function(field){
+      field.addEventListener('blur', function(){ validateField(field); });
+      field.addEventListener('change', function(){ validateField(field); });
+    });
+
+    // Valida tutto al submit
+    form.addEventListener('submit', function(e){
+      var allValid = true;
+      fields.forEach(function(field){
+        if (!validateField(field)) allValid = false;
+      });
+      if (!allValid) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // Scroll al primo campo con errore
+        var firstErr = form.querySelector('.has-error');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, true); // capture: true per intercettare prima del submit handler esistente
+  });
+})();
+</script>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader" aria-hidden="true">
+  <svg class="preloader-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="24" stroke="#E4D9C8" stroke-width="3" fill="none"/>
+    <circle cx="32" cy="32" r="24" class="preloader-ring" stroke-width="3" fill="none" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+  </svg>
+</div>
+
+<div id="progress-bar" aria-hidden="true"></div>
+
+<!-- WhatsApp -->
+<a id="wa-btn" href="https://wa.me/393476524632" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+  <div id="wa-tooltip">Scrivici su WhatsApp</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Torna su -->
+<button id="back-top" aria-label="Torna in cima" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<!-- Cookie banner -->
+<div id="cookie-banner" role="dialog" aria-label="Informativa sui cookie" aria-live="polite">
+  <p>Questo sito usa esclusivamente <strong style="color:#fff;">cookie tecnici</strong> necessari al funzionamento. Nessun cookie di profilazione, nessun tracker di terze parti. <a href="contatti.html#privacy">Informativa completa →</a></p>
+  <div class="cookie-btns">
+    <button class="btn-ck btn-ck-ok" onclick="cookieOk()">Ho capito</button>
+  </div>
+</div>
+<!-- Navbar -->
+<header>
+  <nav id="navbar" role="navigation" aria-label="Navigazione principale">
+    <a class="nav-logo" href="index.html" aria-label="Acquor — Home">
+      <img src="Logo_originale.png" alt="Acquor" height="44" style="height:44px;width:auto;display:block;">
+    </a>
+    <ul id="navMenu" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="sistema.html" class="active">Il sistema</a></li>
+      <li><a href="impatto.html">Impatto</a></li>
+      <li><a href="mercati.html">Mercati</a></li>
+      <li><a href="chi-siamo.html">Chi siamo</a></li>
+      <li><a href="contatti.html" class="nav-pill">Contattaci</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+<section style="background:var(--snow);padding:calc(var(--nav-h) + 4rem) 3rem 4rem;border-bottom:1px solid var(--beige);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(200,213,192,0.3) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;" data-reveal>
+    <span style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:0.8rem;">Il sistema circolare</span>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:1.2rem;">Cinque comparti,<br><em style="color:var(--sage-dark);font-style:italic;">un ciclo chiuso.</em></h1>
+    <p style="font-size:1.1rem;font-weight:300;color:var(--gray);max-width:560px;line-height:1.8;">Ogni modulo è autonomo ma integrato. Il sistema è progettato per espandersi per fasi, riducendo i rischi e massimizzando i margini incrementali.</p>
+  </div>
+</section>
+
+<section id="sistema" aria-labelledby="sistema-h">
+  <div class="container pad">
+    <div style="margin-bottom:4rem;" data-reveal>
+      <span class="label">Il sistema circolare</span>
+      <h2 class="h2" id="sistema-h">
+        Cinque comparti,<br><em>un ciclo chiuso.</em>
+      </h2>
+      <p class="lead" style="margin-top:1rem;text-align:justify;">
+        Ogni modulo è autonomo ma integrato. Il sistema è progettato per espandersi per fasi, riducendo i rischi e massimizzando i margini incrementali.
+      </p>
+    </div>
+
+    <!-- Diagramma full-width -->
+      <div data-reveal style="margin-bottom:3rem;">
+        <figure class="sistema-img" data-reveal data-reveal="left">
+  <img
+    src="sistema-diagram.png" loading="lazy" decoding="async"
+    alt="Schema del sistema circolare integrato Acquor: idroponica, acquaponica, elicicoltura, lombricoltura e laboratorio di trasformazione collegati in un ciclo a zero sprechi"
+    width="1400" height="1400"
+    loading="lazy"
+    style="width:100%;height:auto;display:block;"
+  >
+  <figcaption>Sistema circolare integrato Acquor · Cinque comparti · Zero sprechi strutturali</figcaption>
+</figure>
+      </div>
+
+      <!-- Moduli in griglia -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--beige);border-radius:4px;overflow:hidden;background:var(--beige);" data-reveal>
+        <div class="module" style="border-bottom:none;border-right:1px solid var(--beige);">
+          <span class="module-ico" aria-hidden="true">🌿</span>
+          <div><div class="module-name">Idroponica</div><div class="module-desc">Sistemi NFT e DWC fuori suolo. Ortaggi a foglia, aromatiche, fragole, pomodori. Produzione continua 365 giorni l&rsquo;anno.</div></div>
+          <span class="badge f1">Fase 1</span>
+        </div>
+        <div class="module" style="border-bottom:none;border-right:1px solid var(--beige);">
+          <span class="module-ico" aria-hidden="true">🐟</span>
+          <div><div class="module-name">Acquaponica</div><div class="module-desc">Trota iridea e persico reale in sistemi chiusi, integrati con DWC verticali. Obiettivo di ricerca: compatibilità del coregone del Lago di Garda con il sistema acquaponico.</div></div>
+          <span class="badge f2">Fase 2</span>
+        </div>
+        <div class="module" style="border-bottom:none;">
+          <span class="module-ico" aria-hidden="true">🐌</span>
+          <div><div class="module-name">Elicicoltura</div><div class="module-desc">Helix aspersa Muller. Bava cosmetica ad alto valore aggiunto per l&rsquo;industria cosmetica premium. Carne di lumaca per la ristorazione di qualità.</div></div>
+          <span class="badge f2">Fase 2</span>
+        </div>
+        <div class="module" style="border-bottom:none;border-right:1px solid var(--beige);">
+          <span class="module-ico" aria-hidden="true">🪱</span>
+          <div><div class="module-name">Lombricoltura</div><div class="module-desc">Eisenia fetida. Produce vermicompost certificato valorizzando gli scarti organici del sistema. Chiude il ciclo trasformando i rifiuti in risorsa.</div></div>
+          <span class="badge f1">Fase 1</span>
+        </div>
+        <div class="module" style="border-bottom:none;border-right:1px solid var(--beige);">
+          <span class="module-ico" aria-hidden="true">🏭</span>
+          <div><div class="module-name">Laboratorio di trasformazione</div><div class="module-desc">Pesti, essiccati, liofilizzati ed estratti di bava cosmetica. Prodotti ad alto valore aggiunto per la GDO premium e l&rsquo;e-commerce.</div></div>
+          <span class="badge f1">Fase 1</span>
+        </div>
+        <div class="module" style="border-bottom:none;background:var(--sage-pale);">
+          <span class="module-ico" aria-hidden="true">♻️</span>
+          <div><div class="module-name" style="color:var(--sage-dark);">Zero sprechi strutturali</div><div class="module-desc" style="color:var(--sage-dark);opacity:0.8;">Il sistema è progettato per espandersi per fasi — ogni nuovo comparto si integra con quelli esistenti senza sprechi strutturali.</div></div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo-white.png" alt="Acquor" height="52" style="height:52px;width:auto;display:block;">
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;letter-spacing:0.06em;">Verticalmente puri, nutrizionalmente forti.</p>
+    </div>
+    <ul class="footer-nav" aria-label="Link footer">
+      <li><a href="index.html">L'idea</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="sistema.html">Sistema</a></li>
+      <li><a href="impatto.html">Impatto</a></li>
+      <li><a href="mercati.html">Mercati</a></li>
+      <li><a href="chi-siamo.html">FAQ</a></li>
+      <li><a href="chi-siamo.html">Team</a></li>
+      <li><a href="contatti.html#privacy">Privacy &amp; Cookie</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#f29b9c949ddc939183879d80b2959f939b9edc919d9f">Contatto</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div>&copy; 2026 Acquor</div>
+      <div style="margin-top:0.3rem;opacity:0.6;">Vera Taglietti &amp; Alessandro Corsetti &middot; Brescia</div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+
+/* ── Preloader ───────────────────────────────────────────────── */
+(function(){
+  var pl = document.getElementById('preloader');
+  if (!pl) return;
+  var dismissed = false;
+  function dismiss(){
+    if (dismissed) return;
+    dismissed = true;
+    pl.classList.add('done');
+    setTimeout(function(){ pl.classList.add('gone'); pl.remove(); }, 500);
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(dismiss);
+  } else {
+    window.addEventListener('load', dismiss);
+  }
+  setTimeout(dismiss, 1500);
+})();
+
+/* ── Cookie ──────────────────────────────────────────────────── */
+(function(){
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  if (localStorage.getItem('aq_cookie')) b.remove();
+})();
+function cookieOk(){ _ckSet('ok'); }
+function _ckSet(v){
+  localStorage.setItem('aq_cookie', v);
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  b.style.transition = 'transform 0.5s, opacity 0.4s';
+  b.style.transform = 'translateY(140%)';
+  b.style.opacity = '0';
+  setTimeout(function(){ b.remove(); }, 500);
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+var bar = document.getElementById('progress-bar');
+if (bar) {
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, { passive: true });
+}
+
+/* ── Navbar ──────────────────────────────────────────────────── */
+var nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('solid', window.scrollY > 30);
+  }, { passive: true });
+}
+
+/* ── Hamburger ───────────────────────────────────────────────── */
+var ham  = document.getElementById('hamburger');
+var menu = document.getElementById('navMenu');
+if (ham && menu) {
+  ham.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open);
+    ham.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+    document.body.style.position = open ? 'fixed' : '';
+    document.body.style.width    = open ? '100%' : '';
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      ham.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      ham.setAttribute('aria-label', 'Apri menu');
+      document.body.style.position = '';
+      document.body.style.width = '';
+    });
+  });
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────── */
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(function(el){ ro.observe(el); });
+
+/* ── Active nav (current page) ───────────────────────────────── */
+(function(){
+  var path = window.location.pathname.replace(/\/$/, '').split('/').pop() || 'index.html';
+  document.querySelectorAll('nav ul a').forEach(function(a){
+    var href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+/* ── Torna su ────────────────────────────────────────────────── */
+var backTop = document.getElementById('back-top');
+if (backTop) {
+  window.addEventListener('scroll', function(){
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+}
+
+/* ── FAQ accordion ───────────────────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q').forEach(function(b){
+      b.setAttribute('aria-expanded', 'false');
+      var a = document.getElementById(b.getAttribute('aria-controls'));
+      if (a) a.classList.remove('open');
+    });
+    if (!expanded){
+      btn.setAttribute('aria-expanded', 'true');
+      var ans = document.getElementById(btn.getAttribute('aria-controls'));
+      if (ans) ans.classList.add('open');
+    }
+  });
+});
+
+/* ── Waitlist ────────────────────────────────────────────────── */
+var wlForm = document.getElementById('waitlist-form');
+if (wlForm) {
+  wlForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var email = document.getElementById('wl-email');
+    var privacy = document.getElementById('wl-privacy');
+    if (!email || !email.value.includes('@')) return;
+    if (privacy && !privacy.checked) {
+      privacy.closest('label').style.color = 'rgba(255,120,120,0.9)';
+      return;
+    }
+    var btn = wlForm.querySelector('.waitlist-btn');
+    btn.disabled = true; btn.textContent = '...';
+    try {
+      var res = await fetch(wlForm.action, { method:'POST', body: new FormData(wlForm), headers:{'Accept':'application/json'} });
+      if (res.ok){
+        wlForm.style.display = 'none';
+        document.getElementById('wl-ok').style.display = 'block';
+      } else { throw new Error(); }
+    } catch {
+      btn.disabled = false; btn.textContent = 'Iscriviti →';
+    }
+  });
+}
+
+/* ── Form contatti ───────────────────────────────────────────── */
+var contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var required = contactForm.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(f){
+      if (f.type === 'checkbox' && !f.checked) valid = false;
+      else if (f.type !== 'checkbox' && f.value.trim() === '') valid = false;
+    });
+    if (!valid){
+      var err = document.getElementById('form-err');
+      err.textContent = '✗ Compila tutti i campi obbligatori (*).';
+      err.style.display = 'block'; return;
+    }
+    var btn = document.getElementById('form-btn');
+    btn.disabled = true; btn.textContent = 'Invio in corso...';
+    try {
+      var res = await fetch(contactForm.action, { method:'POST', body: new FormData(contactForm), headers:{'Accept':'application/json'} });
+      if (res.ok){
+        contactForm.reset();
+        document.getElementById('form-ok').style.display = 'block';
+        document.getElementById('form-err').style.display = 'none';
+        btn.textContent = '✓ Inviato';
+      } else { throw new Error(); }
+    } catch {
+      document.getElementById('form-err').style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Invia il messaggio →';
+    }
+  });
+}
+
+/* ── Counter animation ───────────────────────────────────────── */
+function animateCount(el, target, suffix, prefix, duration){
+  var start = performance.now();
+  (function update(now){
+    var t = Math.min((now - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - t, 4);
+    el.textContent = prefix + Math.round(target * ease) + suffix;
+    if (t < 1) requestAnimationFrame(update);
+  })(start);
+}
+var datiSection = document.getElementById('dati');
+var counted = false;
+if (datiSection) {
+  new IntersectionObserver(function(entries){
+    if (entries[0].isIntersecting && !counted){
+      counted = true;
+      [
+        { sel:'.dato:nth-child(1) .dato-val', prefix:'−', val:90, suf:'%', dur:1200 },
+        { sel:'.dato:nth-child(3) .dato-val', prefix:'',  val:0,  suf:'',  dur:600  },
+        { sel:'.dato:nth-child(6) .dato-val', prefix:'',  val:365,suf:'',  dur:1400 },
+      ].forEach(function(d){
+        var el = document.querySelector(d.sel);
+        if (el) animateCount(el, d.val, d.suf, d.prefix, d.dur);
+      });
+    }
+  }, { threshold: 0.3 }).observe(datiSection);
+}
+
+/* ── Smooth image load ───────────────────────────────────────── */
+document.querySelectorAll('img').forEach(function(img){
+  img.style.opacity = img.complete ? '1' : '0';
+  img.style.transition = 'opacity 0.4s';
+  if (!img.complete){
+    img.addEventListener('load',  function(){ img.style.opacity = '1'; });
+    img.addEventListener('error', function(){ img.style.opacity = '0.3'; });
+  }
+});
+
+/* ── External links ──────────────────────────────────────────── */
+document.querySelectorAll('a[href^="http"]').forEach(function(a){
+  if (a.hostname !== location.hostname){
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  }
+});
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.hero-blob,.ticker').forEach(function(el){
+    el.style.animationDuration = '0.01s';
+  });
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    el.style.transition = 'none'; el.classList.add('in');
+  });
+}
+</script>
+</body>
+</html>

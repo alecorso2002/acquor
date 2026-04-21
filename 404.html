@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pagina non trovata — Acquor</title>
+  <link rel="icon" type="image/png" href="Logo_originale.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-page {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 3rem;
+      background: var(--snow);
+    }
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 700; line-height: 1;
+      color: var(--beige); margin-bottom: 0;
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .error-title em { color: var(--sage-dark); font-style: italic; }
+    .error-desc {
+      font-size: 1rem; font-weight: 300;
+      color: var(--gray); max-width: 460px;
+      line-height: 1.8; margin-bottom: 3rem;
+    }
+    .error-nav {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .error-logo {
+      width: 80px; height: auto;
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <img src="Logo_originale.png" alt="Acquor" class="error-logo">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Pagina <em>non trovata.</em></h1>
+    <p class="error-desc">
+      La pagina che stai cercando non esiste o è stata spostata.
+      Torna alla homepage o esplora il sito.
+    </p>
+    <nav class="error-nav" aria-label="Navigazione di recupero">
+      <a href="/" class="btn-dark">
+        Torna alla home <span aria-hidden="true">→</span>
+      </a>
+      <a href="contatti.html" class="btn-light">Contattaci</a>
+    </nav>
+  </main>
+</body>
+</html>

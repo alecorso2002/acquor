@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acquor misura il proprio impatto: consumo idrico ridotto del 90%, zero pesticidi, CO₂ bilanciata, economia circolare certificabile. Dati reali, non greenwashing.">
+  <meta name="author" content="Acquor — Vera Taglietti & Alessandro Corsetti">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#3D6142">
+  <meta property="og:title" content="Impatto ambientale Acquor — numeri reali sulla sostenibilità">
+  <meta property="og:description" content="−90% consumo idrico, 0 pesticidi, 365 giorni di produzione. Ogni dato verificabile per lotto con tracciabilità blockchain. Acquor — Brescia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://acquor.it/impatto.html">
+  <meta property="og:image" content="https://acquor.it/og-image.png">
+  <meta property="og:site_name" content="Acquor">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="−90% consumo idrico, zero pesticidi, CO₂ bilanciata. Dati reali, non greenwashing.">
+  <meta name="twitter:image" content="https://acquor.it/og-image.png">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://acquor.it/impatto.html">
+  <title>Impatto Ambientale Acquor — Sostenibilità Misurabile in Ogni Ciclo</title>
+  <link rel="icon" type="image/png" href="Logo_originale.png">
+  <link rel="apple-touch-icon" href="Logo_originale.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+:root{--nav-h:72px;--sage-dark:#2E7D32;--sage:#4CAF50;--sage-mid:#388E3C;--beige:#E4D9C8;--ink:#1A2E1B;--snow:#FAFAF7;--white:#FFFFFF;--gray:#7A8C7B;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Jost',sans-serif;--radius:4px;--shadow-sm:0 4px 16px rgba(30,43,31,.08);--shadow-md:0 12px 40px rgba(30,43,31,.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--white);display:flex;align-items:center;justify-content:center}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem}
+</style>
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Dati di impatto ambientale Acquor",
+    "description": "Dati verificabili sull'impatto ambientale del sistema agricolo circolare Acquor: −90% consumo idrico, 0 pesticidi, 365 giorni di produzione continua.",
+    "creator": {"@type": "Organization", "name": "Acquor", "url": "https://acquor.it"},
+    "keywords": "idroponica, acquaponica, sostenibilità, impatto ambientale, economia circolare"
+  }
+</script>
+
+<script>
+'use strict';
+/* ── Validazione campo-per-campo ────────────────────────────── */
+(function(){
+  var forms = document.querySelectorAll('#contact-form');
+  forms.forEach(function(form){
+    var fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+    // Messaggi di errore per campo
+    var errorMessages = {
+      'nome':     'Inserisci il tuo nome.',
+      'cognome':  'Inserisci il tuo cognome.',
+      'email':    'Inserisci un indirizzo e-mail valido.',
+      'tipo':     'Seleziona un tipo di interesse.',
+      'messaggio':'Scrivi un messaggio.',
+      'privacy':  'Devi accettare l\'informativa privacy per procedere.'
+    };
+
+    function validateField(field) {
+      var wrapper = field.closest('.form-field');
+      if (!wrapper) return true;
+      var errEl = wrapper.querySelector('.field-error');
+      var valid = true;
+
+      if (field.type === 'checkbox') {
+        valid = field.checked;
+      } else if (field.type === 'email') {
+        valid = field.value.trim() !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+      } else {
+        valid = field.value.trim() !== '';
+      }
+
+      if (!valid) {
+        wrapper.classList.add('has-error');
+        if (errEl) errEl.classList.add('visible');
+      } else {
+        wrapper.classList.remove('has-error');
+        if (errEl) errEl.classList.remove('visible');
+      }
+      return valid;
+    }
+
+    // Valida on-blur
+    fields.forEach(function(field){
+      field.addEventListener('blur', function(){ validateField(field); });
+      field.addEventListener('change', function(){ validateField(field); });
+    });
+
+    // Valida tutto al submit
+    form.addEventListener('submit', function(e){
+      var allValid = true;
+      fields.forEach(function(field){
+        if (!validateField(field)) allValid = false;
+      });
+      if (!allValid) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // Scroll al primo campo con errore
+        var firstErr = form.querySelector('.has-error');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, true); // capture: true per intercettare prima del submit handler esistente
+  });
+})();
+</script>
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader" aria-hidden="true">
+  <svg class="preloader-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="24" stroke="#E4D9C8" stroke-width="3" fill="none"/>
+    <circle cx="32" cy="32" r="24" class="preloader-ring" stroke-width="3" fill="none" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+  </svg>
+</div>
+
+<div id="progress-bar" aria-hidden="true"></div>
+
+<a id="wa-btn" href="https://wa.me/393476524632" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+  <div id="wa-tooltip">Scrivici su WhatsApp</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<!-- Torna su -->
+<button id="back-top" aria-label="Torna in cima" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<!-- Cookie banner -->
+<div id="cookie-banner" role="dialog" aria-label="Informativa sui cookie" aria-live="polite">
+  <p>Questo sito usa esclusivamente <strong style="color:#fff;">cookie tecnici</strong> necessari al funzionamento. Nessun cookie di profilazione, nessun tracker di terze parti. <a href="contatti.html#privacy">Informativa completa →</a></p>
+  <div class="cookie-btns">
+    <button class="btn-ck btn-ck-ok" onclick="cookieOk()">Ho capito</button>
+  </div>
+</div>
+<header>
+  <nav id="navbar" role="navigation" aria-label="Navigazione principale">
+    <a class="nav-logo" href="index.html" aria-label="Acquor — Home">
+      <img src="Logo_originale.png" alt="Acquor" height="44" style="height:44px;width:auto;display:block;">
+    </a>
+    <ul id="navMenu" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="sistema.html">Il sistema</a></li>
+      <li><a href="impatto.html" class="active">Impatto</a></li>
+      <li><a href="mercati.html">Mercati</a></li>
+      <li><a href="chi-siamo.html">Chi siamo</a></li>
+      <li><a href="contatti.html" class="nav-pill">Contattaci</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<main>
+<section style="background:var(--snow);padding:calc(var(--nav-h) + 4rem) 3rem 4rem;border-bottom:1px solid var(--beige);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(200,213,192,0.3) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;" data-reveal>
+    <span style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:0.8rem;">Impatto ambientale</span>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:1.2rem;">Solo ciò che<br><em style="color:var(--sage-dark);font-style:italic;">possiamo dimostrare.</em></h1>
+    <p style="font-size:1.1rem;font-weight:300;color:var(--gray);max-width:560px;line-height:1.8;">Dati ambientali verificabili, tracciabilità blockchain e misurabilità concreta. Nessuna stima di marketing.</p>
+  </div>
+</section>
+
+<section id="dati" aria-labelledby="dati-h">
+  <div class="container pad">
+    <div class="dati-header">
+      <div data-reveal>
+        <span class="label">I numeri</span>
+        <h2 class="h2" id="dati-h">
+          Solo ciò che<br><em>possiamo dimostrare.</em>
+        </h2>
+      </div>
+      <p class="lead" data-reveal data-reveal="right">
+        Ogni valore è misurabile e verificabile. Comunichiamo solo ciò che possiamo dimostrare — nessuna stima di marketing.
+      </p>
+    </div>
+
+    <div class="dati-grid">
+      <div class="dato" data-reveal>
+        <div class="dato-val">−90%</div>
+        <div class="dato-label">Consumo idrico</div>
+        <div class="dato-desc">Rispetto all'agricoltura convenzionale a parità di produzione. L'acqua viene ricircolata continuamente nel sistema chiuso.</div>
+      </div>
+      <div class="dato" data-reveal data-delay="1">
+        <div class="dato-val text-val">Qualità<br>misurabile</div>
+        <div class="dato-label">Profilo nutrizionale</div>
+        <div class="dato-desc">Il controllo preciso di luce, temperatura e nutrienti ci permette di testare e documentare il profilo nutrizionale di ogni varietà — dato per dato, lotto per lotto.</div>
+      </div>
+      <div class="dato" data-reveal data-delay="2">
+        <div class="dato-val">0</div>
+        <div class="dato-label">Pesticidi</div>
+        <div class="dato-desc">Sistema sterile e controllato. Zero agenti chimici — verificato per ogni lotto con codice QR tracciabile e blockchain.</div>
+      </div>
+      <div class="dato" data-reveal data-delay="1">
+        <div class="dato-val text-val">Ingrediente<br>premium</div>
+        <div class="dato-label">Bava cosmetica</div>
+        <div class="dato-desc">La bava di Helix aspersa Muller è un ingrediente premium per l'industria cosmetica con domanda in forte crescita e margini elevati.</div>
+      </div>
+      <div class="dato" data-reveal data-delay="2">
+        <div class="dato-val text-val">Zero<br>sprechi</div>
+        <div class="dato-label">Circolarità strutturale</div>
+        <div class="dato-desc">Ogni scarto del sistema diventa input del modulo successivo. La circolarità abbatte i costi strutturali e massimizza i margini.</div>
+      </div>
+      <div class="dato" data-reveal data-delay="3">
+        <div class="dato-val">365</div>
+        <div class="dato-label">Giorni di produzione</div>
+        <div class="dato-desc">Nessuna stagionalità. Produzione continua e programmabile tutto l'anno, indipendentemente dalle condizioni meteorologiche.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="tracciabilita" style="background:var(--snow);border-top:1px solid var(--beige);" aria-labelledby="trace-h">
+  <div class="container pad">
+    <div style="margin-bottom:4rem;" data-reveal>
+      <span class="label">Trasparenza radicale</span>
+      <h2 class="h2" id="trace-h">
+        Ogni dato &egrave; verificabile,<br><em>lotto per lotto.</em>
+      </h2>
+      <p class="lead" style="margin-top:1rem;">
+        Ogni numero che comunichiamo &egrave; documentato e misurabile. Non stime di marketing &mdash; dati reali, per ogni ciclo produttivo.
+      </p>
+    </div>
+    <div class="trace-grid">
+      <div data-reveal data-reveal="left">
+        <div class="trace-step">
+          <div class="trace-num" aria-hidden="true">01</div>
+          <div>
+            <div class="trace-title">Semina con ID lotto</div>
+            <p class="trace-desc">Ogni ciclo produttivo parte con un identificativo univoco registrato: specie, variet&agrave;, data di inizio e parametri ambientali iniziali.</p>
+          </div>
+        </div>
+        <div class="trace-step">
+          <div class="trace-num" aria-hidden="true">02</div>
+          <div>
+            <div class="trace-title">Monitoraggio continuo</div>
+            <p class="trace-desc">Consumi idrici, nutrienti della soluzione, temperatura, EC e pH registrati per l&rsquo;intera durata della crescita.</p>
+          </div>
+        </div>
+        <div class="trace-step">
+          <div class="trace-num" aria-hidden="true">03</div>
+          <div>
+            <div class="trace-title">Analisi al raccolto</div>
+            <p class="trace-desc">Profilo nutrizionale completo per lotto: vitamina C, calcio, ferro, nitrati. Dati di laboratorio certificati, non stime.</p>
+          </div>
+        </div>
+        <div class="trace-step">
+          <div class="trace-num" aria-hidden="true">04</div>
+          <div>
+            <div class="trace-title">Codice QR immutabile</div>
+            <p class="trace-desc">Tutti i dati del lotto sono accessibili tramite codice QR con tecnologia blockchain. Pubblici, verificabili e permanenti.</p>
+          </div>
+        </div>
+      </div>
+      <div data-reveal data-reveal="right">
+        <div class="trace-card">
+          <div class="trace-lotto">Lotto #AQ-2026-001 &middot; Lattuga Romana</div>
+          <div class="qr-box">
+            <div class="qr" aria-label="Codice QR dimostrativo">
+              <div class="q b"></div><div class="q b"></div><div class="q b"></div><div class="q b"></div><div class="q b"></div><div class="q w"></div><div class="q b"></div>
+              <div class="q b"></div><div class="q w"></div><div class="q w"></div><div class="q w"></div><div class="q b"></div><div class="q w"></div><div class="q b"></div>
+              <div class="q b"></div><div class="q w"></div><div class="q b"></div><div class="q w"></div><div class="q b"></div><div class="q w"></div><div class="q b"></div>
+              <div class="q b"></div><div class="q w"></div><div class="q w"></div><div class="q g"></div><div class="q b"></div><div class="q b"></div><div class="q b"></div>
+              <div class="q b"></div><div class="q b"></div><div class="q b"></div><div class="q b"></div><div class="q b"></div><div class="q w"></div><div class="q w"></div>
+              <div class="q w"></div><div class="q w"></div><div class="q b"></div><div class="q w"></div><div class="q w"></div><div class="q b"></div><div class="q w"></div>
+              <div class="q b"></div><div class="q w"></div><div class="q b"></div><div class="q b"></div><div class="q w"></div><div class="q b"></div><div class="q b"></div>
+            </div>
+          </div>
+          <div class="trace-pills">
+            <span class="trace-pill">Profilo nutrizionale ottimizzato</span>
+            <span class="trace-pill">0 pesticidi</span>
+            <span class="trace-pill">Acqua: 1,2 L/kg</span>
+            <span class="trace-pill">Raccolto ieri</span>
+            <span class="trace-pill">Brescia, IT</span>
+            <span class="trace-pill">Blockchain verificato</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" aria-labelledby="waitlist-h">
+  <div class="waitlist-inner">
+    <div data-reveal>
+      <span class="label">Resta aggiornato</span>
+      <h2 class="waitlist-title" id="waitlist-h">
+        Sii tra i primi<br>a sapere quando <em>lanciamo.</em>
+      </h2>
+      <p class="waitlist-sub">
+        Lascia la tua e-mail per ricevere aggiornamenti sul lancio, l&rsquo;avanzamento del progetto
+        e le prime opportunità di collaborazione. Zero spam, solo notizie concrete.
+      </p>
+      <form
+        id="waitlist-form"
+        class="waitlist-form"
+        action="https://formspree.io/f/xqeyjjqq"
+        method="POST"
+        novalidate
+        aria-label="Iscriviti alla lista d&rsquo;attesa"
+      >
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Nuova iscrizione waitlist acquor.it — impatto">
+        <input type="hidden" name="source" value="impatto">
+        <input
+          type="email" name="email" id="wl-email"
+          class="waitlist-input"
+          placeholder="La tua e-mail"
+          required autocomplete="email"
+          aria-label="Il tuo indirizzo e-mail"
+        >
+        <button type="submit" class="waitlist-btn">Iscriviti &rarr;</button>
+      </form>
+      <p class="waitlist-note" style="margin-top:1rem;margin-bottom:0.8rem;">
+        <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;text-align:left;">
+          <input type="checkbox" name="privacy_waitlist" id="wl-privacy" required
+            style="width:14px;height:14px;flex-shrink:0;margin-top:2px;accent-color:var(--sage-light);">
+          <span style="font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.6;">
+            Acconsento al trattamento della mia e-mail per ricevere aggiornamenti su Acquor,
+            ai sensi del GDPR. Nessuna cessione a terzi. Cancellazione in qualsiasi momento.
+          </span>
+        </label>
+      </p>
+      <div class="waitlist-ok" id="wl-ok" role="status">
+        &check; Iscrizione avvenuta. Ti aggiorneremo sulle novità di Acquor.
+      </div>
+      <p class="waitlist-note">
+        Trattamento dati ai sensi del GDPR &middot; Nessuna cessione a terzi &middot; Cancellazione in qualsiasi momento
+      </p>
+      <div class="waitlist-pills" aria-hidden="true">
+        <span class="waitlist-pill-item">&#127807; Lancio 2026</span>
+        <span class="waitlist-pill-item">&#128205; Brescia</span>
+        <span class="waitlist-pill-item">&#128274; Zero spam</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--sage-dark);padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;" aria-labelledby="cta-h">
+  <div style="position:absolute;inset:0;font-family:var(--font-display);font-size:18vw;font-weight:700;color:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;pointer-events:none;user-select:none;">ACQUOR</div>
+  <div style="max-width:640px;margin:0 auto;position:relative;z-index:1;" data-reveal>
+    <span style="display:block;font-size:0.67rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-light);margin-bottom:1rem;">Collabora con noi</span>
+    <h2 id="cta-h" style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.2rem;">
+      Costruiamo il futuro<br>dell&rsquo;agricoltura <em style="color:var(--beige);font-style:italic;">insieme.</em>
+    </h2>
+    <p style="font-size:1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;">
+      Siamo alla ricerca di partner, investitori e collaboratori che condividano la visione di
+      un&rsquo;agricoltura radicalmente sostenibile e trasparente.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contatti.html" style="background:var(--beige);color:var(--ink);padding:0.9rem 2.4rem;border-radius:2px;font-family:var(--font-body);font-size:0.82rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid var(--beige);display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;">Scrivici &rarr;</a>
+      <a href="sistema.html" style="background:transparent;color:rgba(255,255,255,0.8);padding:0.9rem 2.4rem;border-radius:2px;font-family:var(--font-body);font-size:0.82rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.25);display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;">Il sistema circolare</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo-white.png" alt="Acquor" height="52" style="height:52px;width:auto;display:block;">
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;letter-spacing:0.06em;">Verticalmente puri, nutrizionalmente forti.</p>
+    </div>
+    <ul class="footer-nav" aria-label="Link footer">
+      <li><a href="index.html">L'idea</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="sistema.html">Sistema</a></li>
+      <li><a href="impatto.html">Impatto</a></li>
+      <li><a href="mercati.html">Mercati</a></li>
+      <li><a href="chi-siamo.html">FAQ</a></li>
+      <li><a href="chi-siamo.html">Team</a></li>
+      <li><a href="contatti.html#privacy">Privacy &amp; Cookie</a></li>
+      <li><a href="mailto:info.acquor@gmail.com">Contatto</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div>&copy; 2026 Acquor</div>
+      <div style="margin-top:0.3rem;opacity:0.6;">Vera Taglietti &amp; Alessandro Corsetti &middot; Brescia</div>
+    </div>
+  </div>
+</footer>
+<script>
+
+
+/* ── Preloader ───────────────────────────────────────────────── */
+(function(){
+  var pl = document.getElementById('preloader');
+  if (!pl) return;
+  var dismissed = false;
+  function dismiss(){
+    if (dismissed) return;
+    dismissed = true;
+    pl.classList.add('done');
+    setTimeout(function(){ pl.classList.add('gone'); pl.remove(); }, 500);
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(dismiss);
+  } else {
+    window.addEventListener('load', dismiss);
+  }
+  setTimeout(dismiss, 1500);
+})();
+
+/* ── Cookie ──────────────────────────────────────────────────── */
+(function(){
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  if (localStorage.getItem('aq_cookie')) b.remove();
+})();
+function cookieOk(){ _ckSet('ok'); }
+function _ckSet(v){
+  localStorage.setItem('aq_cookie', v);
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  b.style.transition = 'transform 0.5s, opacity 0.4s';
+  b.style.transform = 'translateY(140%)';
+  b.style.opacity = '0';
+  setTimeout(function(){ b.remove(); }, 500);
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+var bar = document.getElementById('progress-bar');
+if (bar) {
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, { passive: true });
+}
+
+/* ── Navbar ──────────────────────────────────────────────────── */
+var nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('solid', window.scrollY > 30);
+  }, { passive: true });
+}
+
+/* ── Hamburger ───────────────────────────────────────────────── */
+var ham  = document.getElementById('hamburger');
+var menu = document.getElementById('navMenu');
+if (ham && menu) {
+  ham.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open);
+    ham.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+    document.body.style.position = open ? 'fixed' : '';
+    document.body.style.width    = open ? '100%' : '';
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      ham.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      ham.setAttribute('aria-label', 'Apri menu');
+      document.body.style.position = '';
+      document.body.style.width = '';
+    });
+  });
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────── */
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(function(el){ ro.observe(el); });
+
+/* ── Active nav (current page) ───────────────────────────────── */
+(function(){
+  var path = window.location.pathname.replace(/\/$/, '').split('/').pop() || 'index.html';
+  document.querySelectorAll('nav ul a').forEach(function(a){
+    var href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+/* ── Torna su ────────────────────────────────────────────────── */
+var backTop = document.getElementById('back-top');
+if (backTop) {
+  window.addEventListener('scroll', function(){
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+}
+
+/* ── FAQ accordion ───────────────────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q').forEach(function(b){
+      b.setAttribute('aria-expanded', 'false');
+      var a = document.getElementById(b.getAttribute('aria-controls'));
+      if (a) a.classList.remove('open');
+    });
+    if (!expanded){
+      btn.setAttribute('aria-expanded', 'true');
+      var ans = document.getElementById(btn.getAttribute('aria-controls'));
+      if (ans) ans.classList.add('open');
+    }
+  });
+});
+
+/* ── Waitlist ────────────────────────────────────────────────── */
+var wlForm = document.getElementById('waitlist-form');
+if (wlForm) {
+  wlForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var email = document.getElementById('wl-email');
+    var privacy = document.getElementById('wl-privacy');
+    if (!email || !email.value.includes('@')) return;
+    if (privacy && !privacy.checked) {
+      privacy.closest('label').style.color = 'rgba(255,120,120,0.9)';
+      return;
+    }
+    var btn = wlForm.querySelector('.waitlist-btn');
+    btn.disabled = true; btn.textContent = '...';
+    try {
+      var res = await fetch(wlForm.action, { method:'POST', body: new FormData(wlForm), headers:{'Accept':'application/json'} });
+      if (res.ok){
+        wlForm.style.display = 'none';
+        document.getElementById('wl-ok').style.display = 'block';
+      } else { throw new Error(); }
+    } catch {
+      btn.disabled = false; btn.textContent = 'Iscriviti →';
+    }
+  });
+}
+
+/* ── Form contatti ───────────────────────────────────────────── */
+var contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var required = contactForm.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(f){
+      if (f.type === 'checkbox' && !f.checked) valid = false;
+      else if (f.type !== 'checkbox' && f.value.trim() === '') valid = false;
+    });
+    if (!valid){
+      var err = document.getElementById('form-err');
+      err.textContent = '✗ Compila tutti i campi obbligatori (*).';
+      err.style.display = 'block'; return;
+    }
+    var btn = document.getElementById('form-btn');
+    btn.disabled = true; btn.textContent = 'Invio in corso...';
+    try {
+      var res = await fetch(contactForm.action, { method:'POST', body: new FormData(contactForm), headers:{'Accept':'application/json'} });
+      if (res.ok){
+        contactForm.reset();
+        document.getElementById('form-ok').style.display = 'block';
+        document.getElementById('form-err').style.display = 'none';
+        btn.textContent = '✓ Inviato';
+      } else { throw new Error(); }
+    } catch {
+      document.getElementById('form-err').style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Invia il messaggio →';
+    }
+  });
+}
+
+/* ── Counter animation ───────────────────────────────────────── */
+function animateCount(el, target, suffix, prefix, duration){
+  var start = performance.now();
+  (function update(now){
+    var t = Math.min((now - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - t, 4);
+    el.textContent = prefix + Math.round(target * ease) + suffix;
+    if (t < 1) requestAnimationFrame(update);
+  })(start);
+}
+var datiSection = document.getElementById('dati');
+var counted = false;
+if (datiSection) {
+  new IntersectionObserver(function(entries){
+    if (entries[0].isIntersecting && !counted){
+      counted = true;
+      [
+        { sel:'.dato:nth-child(1) .dato-val', prefix:'−', val:90, suf:'%', dur:1200 },
+        { sel:'.dato:nth-child(3) .dato-val', prefix:'',  val:0,  suf:'',  dur:600  },
+        { sel:'.dato:nth-child(6) .dato-val', prefix:'',  val:365,suf:'',  dur:1400 },
+      ].forEach(function(d){
+        var el = document.querySelector(d.sel);
+        if (el) animateCount(el, d.val, d.suf, d.prefix, d.dur);
+      });
+    }
+  }, { threshold: 0.3 }).observe(datiSection);
+}
+
+/* ── Smooth image load ───────────────────────────────────────── */
+document.querySelectorAll('img').forEach(function(img){
+  img.style.opacity = img.complete ? '1' : '0';
+  img.style.transition = 'opacity 0.4s';
+  if (!img.complete){
+    img.addEventListener('load',  function(){ img.style.opacity = '1'; });
+    img.addEventListener('error', function(){ img.style.opacity = '0.3'; });
+  }
+});
+
+/* ── External links ──────────────────────────────────────────── */
+document.querySelectorAll('a[href^="http"]').forEach(function(a){
+  if (a.hostname !== location.hostname){
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  }
+});
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.hero-blob,.ticker').forEach(function(el){
+    el.style.animationDuration = '0.01s';
+  });
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    el.style.transition = 'none'; el.classList.add('in');
+  });
+}
+</script>
+</body>
+</html>

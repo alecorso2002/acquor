@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acquor nasce dall'incontro di due giovani ricercatori dell'Università di Brescia. Vera Taglietti e Alessandro Corsetti costruiscono il futuro dell'agricoltura circolare.">
+  <meta name="author" content="Acquor — Vera Taglietti & Alessandro Corsetti">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#3D6142">
+  <meta property="og:title" content="Il team di Acquor — chi c'è dietro la startup">
+  <meta property="og:description" content="I fondatori di Acquor: Vera Taglietti e Alessandro Corsetti, studenti UniBS. La roadmap del progetto e le domande frequenti sulla startup agritech bresciana.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://acquor.it/chi-siamo.html">
+  <meta property="og:image" content="https://acquor.it/og-image.png">
+  <meta property="og:site_name" content="Acquor">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="Vera Taglietti e Alessandro Corsetti, Università di Brescia. La startup agritech che costruisce il futuro dell'agricoltura circolare.">
+  <meta name="twitter:image" content="https://acquor.it/og-image.png">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://acquor.it/chi-siamo.html">
+  <title>Chi Siamo — Il Team di Acquor | Vera Taglietti e Alessandro Corsetti</title>
+  <link rel="icon" type="image/png" href="Logo_originale.png">
+  <link rel="apple-touch-icon" href="Logo_originale.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+:root{--nav-h:72px;--sage-dark:#2E7D32;--sage:#4CAF50;--sage-mid:#388E3C;--beige:#E4D9C8;--ink:#1A2E1B;--snow:#FAFAF7;--white:#FFFFFF;--gray:#7A8C7B;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Jost',sans-serif;--radius:4px;--shadow-sm:0 4px 16px rgba(30,43,31,.08);--shadow-md:0 12px 40px rgba(30,43,31,.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--white);display:flex;align-items:center;justify-content:center}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem}
+</style>
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Chi siamo — Acquor",
+    "url": "https://acquor.it/chi-siamo.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Acquor",
+      "foundingDate": "2026",
+      "founders": [
+        {"@type": "Person", "name": "Vera Taglietti", "jobTitle": "Co-fondatrice", "alumniOf": "Università degli Studi di Brescia"},
+        {"@type": "Person", "name": "Alessandro Corsetti", "jobTitle": "Co-fondatore", "alumniOf": "Università degli Studi di Brescia"}
+      ]
+    }
+  }
+</script>
+
+<script>
+'use strict';
+/* ── Validazione campo-per-campo ────────────────────────────── */
+(function(){
+  var forms = document.querySelectorAll('#contact-form');
+  forms.forEach(function(form){
+    var fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+    // Messaggi di errore per campo
+    var errorMessages = {
+      'nome':     'Inserisci il tuo nome.',
+      'cognome':  'Inserisci il tuo cognome.',
+      'email':    'Inserisci un indirizzo e-mail valido.',
+      'tipo':     'Seleziona un tipo di interesse.',
+      'messaggio':'Scrivi un messaggio.',
+      'privacy':  'Devi accettare l\'informativa privacy per procedere.'
+    };
+
+    function validateField(field) {
+      var wrapper = field.closest('.form-field');
+      if (!wrapper) return true;
+      var errEl = wrapper.querySelector('.field-error');
+      var valid = true;
+
+      if (field.type === 'checkbox') {
+        valid = field.checked;
+      } else if (field.type === 'email') {
+        valid = field.value.trim() !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+      } else {
+        valid = field.value.trim() !== '';
+      }
+
+      if (!valid) {
+        wrapper.classList.add('has-error');
+        if (errEl) errEl.classList.add('visible');
+      } else {
+        wrapper.classList.remove('has-error');
+        if (errEl) errEl.classList.remove('visible');
+      }
+      return valid;
+    }
+
+    // Valida on-blur
+    fields.forEach(function(field){
+      field.addEventListener('blur', function(){ validateField(field); });
+      field.addEventListener('change', function(){ validateField(field); });
+    });
+
+    // Valida tutto al submit
+    form.addEventListener('submit', function(e){
+      var allValid = true;
+      fields.forEach(function(field){
+        if (!validateField(field)) allValid = false;
+      });
+      if (!allValid) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // Scroll al primo campo con errore
+        var firstErr = form.querySelector('.has-error');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, true); // capture: true per intercettare prima del submit handler esistente
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "I prodotti Acquor sono già disponibili all'acquisto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al momento siamo nella fase di avvio: stiamo costruendo il primo impianto pilota, previsto per il 2026. I prodotti non sono ancora disponibili al pubblico. Se sei interessato a essere tra i primi clienti o partner, lascia la tua e-mail nella sezione Resta aggiornato oppure scrivici direttamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come funziona il ciclo circolare del sistema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il sistema integra cinque comparti collegati in un ciclo chiuso: gli scarti vegetali dell'idroponica e dell'acquaponica alimentano le lumache dell'elicicoltura; le deiezioni organiche e i residui del sistema alimentano i lombrichi; i lombrichi valorizzano questi scarti producendo vermicompost certificato, che esce dal ciclo come fertilizzante con valore di mercato. Zero rifiuti strutturali."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cosa si intende per tracciabilità blockchain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ogni lotto di produzione viene registrato su una blockchain con tutti i dati rilevanti: valori nutrizionali misurati in laboratorio, consumi idrici effettivi, data di raccolta, assenza di pesticidi verificata. Questi dati vengono resi pubblici tramite un codice QR stampato sulla confezione."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come si può diventare partner o investire in Acquor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Siamo aperti a collaborazioni di vario tipo: investitori privati interessati al settore agritech, partner commerciali (ristoranti, aziende cosmetiche, GDO premium), enti di ricerca e università. Compilare il form di contatto nella sezione Costruiamo insieme, specificando il tipo di interesse. Risposta entro 48 ore."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dove sarà localizzato il primo impianto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il primo impianto pilota sarà realizzato nell'area di Brescia, in stretto collegamento con l'Università degli Studi di Brescia. La scelta del territorio è strategica: prossimità al Lago di Garda per le specie ittiche dell'acquaponica, accesso a reti di distribuzione premium del Nord Italia e vicinanza a partner industriali del settore cosmetico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perché i pesci del Lago di Garda e non specie più comuni?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La scelta privilegia specie con forte identità territoriale e domanda consolidata nella ristorazione locale e del Nord Italia. Trota, Persico e Lavarello sono le specie su cui si concentra la progettazione del comparto acquaponico, compatibili con sistemi in vasca chiusa e apprezzate dai mercati premium della zona."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader" aria-hidden="true">
+  <svg class="preloader-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="24" stroke="#E4D9C8" stroke-width="3" fill="none"/>
+    <circle cx="32" cy="32" r="24" class="preloader-ring" stroke-width="3" fill="none" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+  </svg>
+</div>
+
+<div id="progress-bar" aria-hidden="true"></div>
+
+<!-- WhatsApp -->
+<a id="wa-btn" href="https://wa.me/393476524632" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+  <div id="wa-tooltip">Scrivici su WhatsApp</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Torna su -->
+<button id="back-top" aria-label="Torna in cima" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<!-- Cookie banner -->
+<div id="cookie-banner" role="dialog" aria-label="Informativa sui cookie" aria-live="polite">
+  <p>Questo sito usa esclusivamente <strong style="color:#fff;">cookie tecnici</strong> necessari al funzionamento. Nessun cookie di profilazione, nessun tracker di terze parti. <a href="contatti.html#privacy">Informativa completa →</a></p>
+  <div class="cookie-btns">
+    <button class="btn-ck btn-ck-ok" onclick="cookieOk()">Ho capito</button>
+  </div>
+</div>
+<!-- Navbar -->
+<header>
+  <nav id="navbar" role="navigation" aria-label="Navigazione principale">
+    <a class="nav-logo" href="index.html" aria-label="Acquor — Home">
+      <img src="Logo_originale.png" alt="Acquor" height="44" style="height:44px;width:auto;display:block;">
+    </a>
+    <ul id="navMenu" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="sistema.html">Il sistema</a></li>
+      <li><a href="impatto.html">Impatto</a></li>
+      <li><a href="mercati.html">Mercati</a></li>
+      <li><a href="chi-siamo.html" class="active">Chi siamo</a></li>
+      <li><a href="contatti.html" class="nav-pill">Contattaci</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+<section style="background:var(--snow);padding:calc(var(--nav-h) + 4rem) 3rem 4rem;border-bottom:1px solid var(--beige);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(200,213,192,0.3) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:var(--max-w);margin:0 auto;position:relative;z-index:1;" data-reveal>
+    <span style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:0.8rem;">Chi siamo</span>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:1.2rem;">Due studenti,<br><em style="color:var(--sage-dark);font-style:italic;">una visione concreta.</em></h1>
+    <p style="font-size:1.1rem;font-weight:300;color:var(--gray);max-width:560px;line-height:1.8;">Acquor nasce da una passione comune per un'agricoltura più sostenibile.</p>
+  </div>
+</section>
+
+<section id="team" aria-labelledby="team-h">
+  <div class="container pad">
+    <div data-reveal>
+      <span class="label">Il team</span>
+      <h2 class="h2" id="team-h">
+        Due fondatori,<br><em>una visione condivisa.</em>
+      </h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card" data-reveal>
+        <div class="av av-v" aria-label="Iniziali Vera Taglietti">V</div>
+        <div>
+          <div class="team-name">Vera Taglietti</div>
+          <div class="team-role">Co-fondatrice</div>
+          <p class="team-bio">Laureata in agraria all'Università degli Studi di Brescia, attualmente iscritta alla magistrale in Tecnologie per la Transizione Energetica in Agricoltura. Formata con masterclass specializzate in coltivazioni fuori suolo.</p>
+        </div>
+      </div>
+      <div class="team-card" data-reveal data-delay="1">
+        <div class="av av-a" aria-label="Iniziali Alessandro Corsetti">A</div>
+        <div>
+          <div class="team-name">Alessandro Corsetti</div>
+          <div class="team-role">Co-fondatore</div>
+          <p class="team-bio">Laureato in agraria all'Università degli Studi di Brescia, attualmente iscritto alla magistrale in Tecnologie per la Transizione Energetica in Agricoltura. Formazione specializzata in sistemi acquaponici e coltivazioni fuori suolo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-note" data-reveal>
+      Entrambi laureati in agraria all'UniBS, formati con <strong>masterclass in coltivazioni fuori suolo</strong>. L'obiettivo: costruire un sistema produttivo che sia anche laboratorio permanente — per testare, misurare e migliorare continuamente ogni comparto.
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" aria-labelledby="roadmap-h">
+  <div class="container pad">
+    <div data-reveal>
+      <span class="label">La roadmap</span>
+      <h2 class="h2" id="roadmap-h">
+        Un percorso<br><em>per fasi.</em>
+      </h2>
+    </div>
+
+    <div class="roadmap-wrap">
+      <div class="roadmap-line" aria-hidden="true"></div>
+      <div class="roadmap-steps">
+        <div class="rm-step" data-reveal>
+          <div class="rm-step-inner">
+            <div class="rm-dot now" aria-label="Fase attuale"></div>
+            <div class="rm-phase">In corso</div>
+            <div class="rm-year">2026</div>
+            <div class="rm-title">Fondazione e avvio</div>
+            <p class="rm-desc">Costituzione della startup, completamento del percorso magistrale all'UniBS, masterclass in coltivazioni fuori suolo e avvio del primo impianto idroponico.</p>
+          </div>
+        </div>
+        <div class="rm-step" data-reveal data-delay="1">
+          <div class="rm-step-inner">
+            <div class="rm-dot" aria-hidden="true"></div>
+            <div class="rm-phase">Breve termine</div>
+            <div class="rm-year">2027</div>
+            <div class="rm-title">Impianto pilota — elicicoltura e lombricoltura</div>
+            <p class="rm-desc">Realizzazione dell'impianto pilota con i comparti di elicicoltura e lombricoltura, in affiancamento all'idroponica. Obiettivo: testare le varietà coltivate e allevate e raccogliere i primi dati produttivi reali.</p>
+          </div>
+        </div>
+        <div class="rm-step" data-reveal data-delay="2">
+          <div class="rm-step-inner">
+            <div class="rm-dot" aria-hidden="true"></div>
+            <div class="rm-phase">Medio termine</div>
+            <div class="rm-year">2028</div>
+            <div class="rm-title">Automazione e sensoristica</div>
+            <p class="rm-desc">Implementazione di sensoristica avanzata e automazione degli impianti. Monitoraggio continuo dei parametri produttivi per ottimizzare resa, qualità e consumi.</p>
+          </div>
+        </div>
+        <div class="rm-step" data-reveal data-delay="3">
+          <div class="rm-step-inner">
+            <div class="rm-dot" aria-hidden="true"></div>
+            <div class="rm-phase">Lungo termine</div>
+            <div class="rm-year">2032+</div>
+            <div class="rm-title">Integrazione acquaponica</div>
+            <p class="rm-desc">Una volta che idroponica, elicicoltura e lombricoltura saranno a regime, valutazione dell'integrazione del comparto acquaponico — un investimento impegnativo che richiede basi solide e dati certi prima di essere avviato.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-h">
+  <div class="container pad">
+    <div class="faq-header">
+      <div data-reveal>
+        <span class="label">Domande frequenti</span>
+        <h2 class="h2" id="faq-h">
+          Hai qualche<br><em>domanda?</em>
+        </h2>
+      </div>
+      <p class="lead" data-reveal data-reveal="right" style="max-width:360px;">
+        Rispondiamo alle domande più frequenti sul sistema, sui prodotti e sulle opportunità di collaborazione.
+      </p>
+    </div>
+
+    <div class="faq-list" data-reveal>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a1">
+          I prodotti Acquor sono già disponibili all'acquisto?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a" id="faq-a1" role="region">
+          <div class="faq-a-inner">
+            Al momento siamo nella fase di avvio: stiamo costruendo il primo impianto pilota, previsto per il 2026. I prodotti non sono ancora disponibili al pubblico. Se sei interessato a essere tra i primi clienti o partner, lascia la tua e-mail nella sezione "Resta aggiornato" oppure scrivici direttamente.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a2">
+          Come funziona il ciclo circolare del sistema?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a" id="faq-a2" role="region">
+          <div class="faq-a-inner">
+            Il sistema integra cinque comparti collegati in un ciclo chiuso: gli scarti vegetali dell'idroponica e dell'acquaponica alimentano le lumache dell'elicicoltura; le deiezioni organiche e i residui del sistema alimentano i lombrichi; i lombrichi valorizzano questi scarti producendo vermicompost certificato, che esce dal ciclo come fertilizzante con valore di mercato. Zero rifiuti strutturali.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a3">
+          Cosa si intende per tracciabilità blockchain?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a" id="faq-a3" role="region">
+          <div class="faq-a-inner">
+            Ogni lotto di produzione viene registrato su una blockchain con tutti i dati rilevanti: valori nutrizionali misurati in laboratorio, consumi idrici effettivi, data di raccolta, assenza di pesticidi verificata. Questi dati vengono resi pubblici tramite un codice QR stampato sulla confezione — chiunque può verificarli in modo indipendente, senza dover fidarsi delle nostre dichiarazioni.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a4">
+          Come si può diventare partner o investire in Acquor?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a" id="faq-a4" role="region">
+          <div class="faq-a-inner">
+            Siamo aperti a collaborazioni di vario tipo: investitori privati interessati al settore agritech, partner commerciali (ristoranti, aziende cosmetiche, GDO premium), enti di ricerca e università. Il modo più diretto è compilare il form di contatto nella sezione "Costruiamo insieme", specificando il tipo di interesse. Risponderemo entro 48 ore.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a5">
+          Dove sarà localizzato il primo impianto?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a" id="faq-a5" role="region">
+          <div class="faq-a-inner">
+            Il primo impianto pilota sarà realizzato nell'area di Brescia, in stretto collegamento con l'Università degli Studi di Brescia dove i fondatori stanno completando la magistrale. La scelta del territorio è strategica: prossimità al Lago di Garda per le specie ittiche dell'acquaponica, accesso a reti di distribuzione premium del Nord Italia e vicinanza a partner industriali del settore cosmetico.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a6">
+          Perché i pesci del Lago di Garda e non specie più comuni?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a" id="faq-a6" role="region">
+          <div class="faq-a-inner">
+            La scelta privilegia specie con forte identità territoriale e domanda consolidata nella ristorazione locale e del Nord Italia. Trota, Persico e Lavarello — il nome comune del coregone del Lago di Garda — sono le specie su cui si concentra la progettazione del comparto acquaponico, compatibili con sistemi in vasca chiusa e apprezzate dai mercati premium della zona.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" aria-labelledby="waitlist-h">
+  <div class="waitlist-inner">
+    <div data-reveal>
+      <span class="label">Resta aggiornato</span>
+      <h2 class="waitlist-title" id="waitlist-h">
+        Sii tra i primi<br>a sapere quando <em>lanciamo.</em>
+      </h2>
+      <p class="waitlist-sub">
+        Lascia la tua e-mail per ricevere aggiornamenti sul lancio, l&rsquo;avanzamento del progetto
+        e le prime opportunità di collaborazione. Zero spam, solo notizie concrete.
+      </p>
+      <form
+        id="waitlist-form"
+        class="waitlist-form"
+        action="https://formspree.io/f/xqeyjjqq"
+        method="POST"
+        novalidate
+        aria-label="Iscriviti alla lista d&rsquo;attesa"
+      >
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Nuova iscrizione waitlist acquor.it — chi-siamo">
+        <input type="hidden" name="source" value="chi-siamo">
+        <input
+          type="email" name="email" id="wl-email"
+          class="waitlist-input"
+          placeholder="La tua e-mail"
+          required autocomplete="email"
+          aria-label="Il tuo indirizzo e-mail"
+        >
+        <p class="waitlist-note" style="margin-top:1rem;margin-bottom:0.8rem;">
+        <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;text-align:left;">
+          <input type="checkbox" name="privacy_waitlist" id="wl-privacy" required
+            style="width:14px;height:14px;flex-shrink:0;margin-top:2px;accent-color:var(--sage-light);">
+          <span style="font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.6;">
+            Acconsento al trattamento della mia e-mail per ricevere aggiornamenti su Acquor,
+            ai sensi del GDPR. Nessuna cessione a terzi. Cancellazione in qualsiasi momento.
+          </span>
+        </label>
+      </p>
+        <button type="submit" class="waitlist-btn">Iscriviti &rarr;</button>
+      </form>
+      <div class="waitlist-ok" id="wl-ok" role="status">
+        &check; Iscrizione avvenuta. Ti aggiorneremo sulle novità di Acquor.
+      </div>
+      <p class="waitlist-note">
+        Trattamento dati ai sensi del GDPR &middot; Nessuna cessione a terzi &middot; Cancellazione in qualsiasi momento
+      </p>
+      <div class="waitlist-pills" aria-hidden="true">
+        <span class="waitlist-pill-item">&#127807; Lancio 2026</span>
+        <span class="waitlist-pill-item">&#128205; Brescia</span>
+        <span class="waitlist-pill-item">&#128274; Zero spam</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--sage-dark);padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;" aria-labelledby="cta-h">
+  <div style="position:absolute;inset:0;font-family:var(--font-display);font-size:18vw;font-weight:700;color:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;pointer-events:none;user-select:none;">ACQUOR</div>
+  <div style="max-width:640px;margin:0 auto;position:relative;z-index:1;" data-reveal>
+    <span style="display:block;font-size:0.67rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-light);margin-bottom:1rem;">Collabora con noi</span>
+    <h2 id="cta-h" style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.2rem;">
+      Costruiamo il futuro<br>dell&rsquo;agricoltura <em style="color:var(--beige);font-style:italic;">insieme.</em>
+    </h2>
+    <p style="font-size:1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;">
+      Siamo alla ricerca di partner, investitori e collaboratori che condividano la visione di
+      un&rsquo;agricoltura radicalmente sostenibile e trasparente.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contatti.html" style="background:var(--beige);color:var(--ink);padding:0.9rem 2.4rem;border-radius:2px;font-family:var(--font-body);font-size:0.82rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid var(--beige);display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;">Scrivici &rarr;</a>
+      <a href="sistema.html" style="background:transparent;color:rgba(255,255,255,0.8);padding:0.9rem 2.4rem;border-radius:2px;font-family:var(--font-body);font-size:0.82rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,0.25);display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;">Il sistema circolare</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo-white.png" alt="Acquor" height="52" style="height:52px;width:auto;display:block;">
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;letter-spacing:0.06em;">Verticalmente puri, nutrizionalmente forti.</p>
+    </div>
+    <ul class="footer-nav" aria-label="Link footer">
+      <li><a href="index.html">L'idea</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="sistema.html">Sistema</a></li>
+      <li><a href="impatto.html">Impatto</a></li>
+      <li><a href="mercati.html">Mercati</a></li>
+      <li><a href="chi-siamo.html">FAQ</a></li>
+      <li><a href="chi-siamo.html">Team</a></li>
+      <li><a href="contatti.html#privacy">Privacy &amp; Cookie</a></li>
+      <li><a href="mailto:info.acquor@gmail.com">Contatto</a></li>
+    </ul>
+    <div class="footer-copy">
+      <div>&copy; 2026 Acquor</div>
+      <div style="margin-top:0.3rem;opacity:0.6;">Vera Taglietti &amp; Alessandro Corsetti &middot; Brescia</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+
+/* ── Preloader ───────────────────────────────────────────────── */
+(function(){
+  var pl = document.getElementById('preloader');
+  if (!pl) return;
+  var dismissed = false;
+  function dismiss(){
+    if (dismissed) return;
+    dismissed = true;
+    pl.classList.add('done');
+    setTimeout(function(){ pl.classList.add('gone'); pl.remove(); }, 500);
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(dismiss);
+  } else {
+    window.addEventListener('load', dismiss);
+  }
+  setTimeout(dismiss, 1500);
+})();
+
+/* ── Cookie ──────────────────────────────────────────────────── */
+(function(){
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  if (localStorage.getItem('aq_cookie')) b.remove();
+})();
+function cookieOk(){ _ckSet('ok'); }
+function _ckSet(v){
+  localStorage.setItem('aq_cookie', v);
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  b.style.transition = 'transform 0.5s, opacity 0.4s';
+  b.style.transform = 'translateY(140%)';
+  b.style.opacity = '0';
+  setTimeout(function(){ b.remove(); }, 500);
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+var bar = document.getElementById('progress-bar');
+if (bar) {
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, { passive: true });
+}
+
+/* ── Navbar ──────────────────────────────────────────────────── */
+var nav = document.getElementById('navbar');
+if (nav) {
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('solid', window.scrollY > 30);
+  }, { passive: true });
+}
+
+/* ── Hamburger ───────────────────────────────────────────────── */
+var ham  = document.getElementById('hamburger');
+var menu = document.getElementById('navMenu');
+if (ham && menu) {
+  ham.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open);
+    ham.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+    document.body.style.position = open ? 'fixed' : '';
+    document.body.style.width    = open ? '100%' : '';
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      ham.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      ham.setAttribute('aria-label', 'Apri menu');
+      document.body.style.position = '';
+      document.body.style.width = '';
+    });
+  });
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────── */
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(function(el){ ro.observe(el); });
+
+/* ── Active nav (current page) ───────────────────────────────── */
+(function(){
+  var path = window.location.pathname.replace(/\/$/, '').split('/').pop() || 'index.html';
+  document.querySelectorAll('nav ul a').forEach(function(a){
+    var href = a.getAttribute('href').split('/').pop();
+    if (href === path) a.classList.add('active');
+  });
+})();
+
+/* ── Torna su ────────────────────────────────────────────────── */
+var backTop = document.getElementById('back-top');
+if (backTop) {
+  window.addEventListener('scroll', function(){
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+}
+
+/* ── FAQ accordion ───────────────────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q').forEach(function(b){
+      b.setAttribute('aria-expanded', 'false');
+      var a = document.getElementById(b.getAttribute('aria-controls'));
+      if (a) a.classList.remove('open');
+    });
+    if (!expanded){
+      btn.setAttribute('aria-expanded', 'true');
+      var ans = document.getElementById(btn.getAttribute('aria-controls'));
+      if (ans) ans.classList.add('open');
+    }
+  });
+});
+
+/* ── Waitlist ────────────────────────────────────────────────── */
+var wlForm = document.getElementById('waitlist-form');
+if (wlForm) {
+  wlForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var email = document.getElementById('wl-email');
+    var privacy = document.getElementById('wl-privacy');
+    if (!email || !email.value.includes('@')) return;
+    if (privacy && !privacy.checked) {
+      privacy.closest('label').style.color = 'rgba(255,120,120,0.9)';
+      return;
+    }
+    var btn = wlForm.querySelector('.waitlist-btn');
+    btn.disabled = true; btn.textContent = '...';
+    try {
+      var res = await fetch(wlForm.action, { method:'POST', body: new FormData(wlForm), headers:{'Accept':'application/json'} });
+      if (res.ok){
+        wlForm.style.display = 'none';
+        document.getElementById('wl-ok').style.display = 'block';
+      } else { throw new Error(); }
+    } catch {
+      btn.disabled = false; btn.textContent = 'Iscriviti →';
+    }
+  });
+}
+
+/* ── Form contatti ───────────────────────────────────────────── */
+var contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var required = contactForm.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(f){
+      if (f.type === 'checkbox' && !f.checked) valid = false;
+      else if (f.type !== 'checkbox' && f.value.trim() === '') valid = false;
+    });
+    if (!valid){
+      var err = document.getElementById('form-err');
+      err.textContent = '✗ Compila tutti i campi obbligatori (*).';
+      err.style.display = 'block'; return;
+    }
+    var btn = document.getElementById('form-btn');
+    btn.disabled = true; btn.textContent = 'Invio in corso...';
+    try {
+      var res = await fetch(contactForm.action, { method:'POST', body: new FormData(contactForm), headers:{'Accept':'application/json'} });
+      if (res.ok){
+        contactForm.reset();
+        document.getElementById('form-ok').style.display = 'block';
+        document.getElementById('form-err').style.display = 'none';
+        btn.textContent = '✓ Inviato';
+      } else { throw new Error(); }
+    } catch {
+      document.getElementById('form-err').style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Invia il messaggio →';
+    }
+  });
+}
+
+/* ── Counter animation ───────────────────────────────────────── */
+function animateCount(el, target, suffix, prefix, duration){
+  var start = performance.now();
+  (function update(now){
+    var t = Math.min((now - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - t, 4);
+    el.textContent = prefix + Math.round(target * ease) + suffix;
+    if (t < 1) requestAnimationFrame(update);
+  })(start);
+}
+var datiSection = document.getElementById('dati');
+var counted = false;
+if (datiSection) {
+  new IntersectionObserver(function(entries){
+    if (entries[0].isIntersecting && !counted){
+      counted = true;
+      [
+        { sel:'.dato:nth-child(1) .dato-val', prefix:'−', val:90, suf:'%', dur:1200 },
+        { sel:'.dato:nth-child(3) .dato-val', prefix:'',  val:0,  suf:'',  dur:600  },
+        { sel:'.dato:nth-child(6) .dato-val', prefix:'',  val:365,suf:'',  dur:1400 },
+      ].forEach(function(d){
+        var el = document.querySelector(d.sel);
+        if (el) animateCount(el, d.val, d.suf, d.prefix, d.dur);
+      });
+    }
+  }, { threshold: 0.3 }).observe(datiSection);
+}
+
+/* ── Smooth image load ───────────────────────────────────────── */
+document.querySelectorAll('img').forEach(function(img){
+  img.style.opacity = img.complete ? '1' : '0';
+  img.style.transition = 'opacity 0.4s';
+  if (!img.complete){
+    img.addEventListener('load',  function(){ img.style.opacity = '1'; });
+    img.addEventListener('error', function(){ img.style.opacity = '0.3'; });
+  }
+});
+
+/* ── External links ──────────────────────────────────────────── */
+document.querySelectorAll('a[href^="http"]').forEach(function(a){
+  if (a.hostname !== location.hostname){
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  }
+});
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.hero-blob,.ticker').forEach(function(el){
+    el.style.animationDuration = '0.01s';
+  });
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    el.style.transition = 'none'; el.classList.add('in');
+  });
+}
+</script>
+</body>
+</html>
